@@ -1,0 +1,12 @@
+# Godot 4+
+.godot/
+.import/
+.export/
+.export_presets.cfg
+
+# Platform-specific
+/android/
+
+# General ignores
+*.import
+*.translation
