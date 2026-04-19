@@ -16,6 +16,17 @@
 - [x] Escena de Juego 01 creada (narrativa + encuentro QTE)
 - [x] Pantalla de Resultados creada (victoria/derrota + reintentar/menú)
 - [x] Flujo de principio a fin conectado: Menú → Escena 01 → QTE → Resultado → Menú
+- [x] Fondo visual añadido a la Escena 01 (imagen generada)
+- [x] Sprites del personaje principal añadidos con animaciones: `entra_en_escena`, `shoot`, `pj_muere1`
+- [x] Sprite del enemigo añadido con animación: `enemigo_dispara`
+- [x] Mecánica de QTE cambiada de presionar tecla a clic sobre hitbox del enemigo (Area2D + CollisionShape2D)
+- [x] Animación de caminata de entrada con Tween (personaje entra desde fuera de pantalla)
+- [x] Detección de acierto/fallo mediante PhysicsPointQueryParameters2D (consulta sincrónica)
+- [x] Lógica de 3 caminos implementada: acierto, fallo por clic erróneo, fallo por tiempo agotado
+- [x] Animación del enemigo sincronizada con el disparo del jugador
+- [x] Secuencia de muerte del personaje con interrupción de animación y temporizadores
+- [x] Sistema de reintentos con reseteo de animaciones y estado
+- [x] Traducción completa de todos los textos de la interfaz al español
 
 ## En Progreso
 
@@ -23,11 +34,9 @@ _(nada en progreso actualmente)_
 
 ## Próximos Pasos
 
-- [ ] Abrir el proyecto en el editor Godot y verificar que todas las escenas carguen correctamente
-- [ ] Probar el flujo completo jugando (Menú → Jugar → QTE → Resultado)
-- [ ] Corregir cualquier problema de diseño (layout) de .tscn en el editor Godot si es necesario
+- [ ] Añadir animación de muerte del enemigo cuando el jugador acierta
+- [ ] Añadir efectos de sonido sincronizados con las animaciones de disparo y muerte
+- [ ] Añadir música de fondo
 - [ ] Añadir una segunda escena de juego con una variación diferente de QTE
 - [ ] Añadir transiciones entre escenas (efectos de fundido)
 - [ ] Añadir un minijuego simple
-- [ ] Añadir efectos de sonido y música
-- [ ] Reemplazar fondos provisionales con arte

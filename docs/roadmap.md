@@ -1,6 +1,6 @@
 # Hoja de Ruta
 
-## Fase 1: Base (MVP) ← Actual
+## Fase 1: Base (MVP) ✅
 
 Objetivo: Crear una versión mínima jugable con un flujo completo.
 
@@ -13,7 +13,20 @@ Objetivo: Crear una versión mínima jugable con un flujo completo.
 - [x] Pantalla de resultados (victoria y derrota)
 - [x] Flujo de juego completo de principio a fin: Menú → Escena → QTE → Resultado → Menú
 
-## Fase 2: Expansión
+## Fase 2: Arte y Mecánica de Duelo ← Actual
+
+Objetivo: Reemplazar placeholders con sprites reales e implementar mecánica de duelo completa.
+
+- [x] Fondo visual añadido a la Escena 01
+- [x] Sprites del personaje principal con animaciones (caminata, disparo, muerte)
+- [x] Sprite del enemigo con animación de disparo
+- [x] Mecánica de QTE cambiada de presionar tecla a clic sobre hitbox (Area2D)
+- [x] Lógica de 3 caminos: acierto, fallo por clic erróneo, fallo por tiempo agotado
+- [x] Sistema de reintentos con reseteo de animaciones
+- [x] Traducción completa de la interfaz al español
+- [ ] Animación de muerte del enemigo cuando el jugador acierta
+
+## Fase 3: Expansión
 
 Objetivo: Añadir más contenido, variedad y un minijuego.
 
@@ -25,14 +38,12 @@ Objetivo: Añadir más contenido, variedad y un minijuego.
 - [ ] Añadir más texto narrativo y variedad de escenas
 - [ ] Expandir `scene_order` en GameManager
 
-## Fase 3: Pulido
+## Fase 4: Pulido
 
 Objetivo: Mejorar la sensación del juego, la presentación y los detalles finales.
 
 - [ ] Añadir música de fondo
-- [ ] Añadir efectos de sonido (éxito/fracaso de QTE, clics del menú)
-- [ ] Reemplazar fondos provisionales por arte definitivo
-- [ ] Añadir sprites de personajes o ilustraciones
+- [ ] Añadir efectos de sonido (disparo, muerte, clics del menú)
 - [ ] Mejorar la tipografía y el tema visual
 - [ ] Añadir progresión de dificultad (tiempos más cortos en escenas posteriores)
 - [ ] Secuencia final de escenas (5-8 escenas en total)

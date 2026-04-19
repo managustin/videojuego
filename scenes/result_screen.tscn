@@ -39,7 +39,7 @@ alignment = 1
 [node name="ResultLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
-text = "Result"
+text = "Resultado"
 horizontal_alignment = 1
 
 [node name="MessageLabel" type="Label" parent="VBoxContainer"]
@@ -57,10 +57,10 @@ custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 custom_minimum_size = Vector2(200, 45)
 theme_override_font_sizes/font_size = 20
-text = "Retry"
+text = "Reintentar"
 
 [node name="MenuButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 custom_minimum_size = Vector2(200, 45)
 theme_override_font_sizes/font_size = 20
-text = "Main Menu"
+text = "Menú Principal"

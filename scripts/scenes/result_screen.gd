@@ -20,13 +20,13 @@ func _ready() -> void:
 ## Configures the screen based on the game outcome.
 func _display_result() -> void:
 	if GameManager.game_result == "victory":
-		result_label.text = "You Survived!"
-		message_label.text = "The frontier is safe... for now."
+		result_label.text = "¡Bien!"
+		message_label.text = "Sobreviviste... por ahora."
 		result_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.2))
 		background.color = Color(0.05, 0.15, 0.05)
 	else:
-		result_label.text = "You Died."
-		message_label.text = "The west is a dangerous place..."
+		result_label.text = "Moriste."
+		message_label.text = "La quedaste..."
 		result_label.add_theme_color_override("font_color", Color(0.8, 0.2, 0.2))
 		background.color = Color(0.15, 0.05, 0.05)
 

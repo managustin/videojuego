@@ -1,17 +1,24 @@
-# Current Task
+# Tarea Actual
 
-Bootstrap the MVP of the project.
+Completar la Escena de Duelo 01 (Fase 2).
 
-## Goal
-Create the minimum playable version:
-- main menu
-- one static gameplay scene
-- one QTE
-- lives system
-- result screen
+## Objetivo
+Finalizar la primera escena de combate con todos los elementos visuales y mecánicos:
 
-## Constraints
-- use placeholder assets
-- keep architecture simple
-- do not add extra systems beyond what the MVP needs
-- follow MASTER_CONTEXT.md for all decisions
+## Completado
+- [x] Fondo visual
+- [x] Sprites del personaje principal (caminata, disparo, muerte)
+- [x] Sprite del enemigo (disparo)
+- [x] Mecánica de clic sobre hitbox
+- [x] Barra de tiempo del QTE
+- [x] Tres caminos de resolución (acierto, fallo por clic erróneo, fallo por tiempo)
+- [x] Sistema de reintentos con reseteo
+- [x] Traducción al español
+
+## Pendiente
+- [ ] Animación de muerte del enemigo cuando el jugador acierta
+
+## Restricciones
+- Mantener la arquitectura simple
+- Seguir MASTER_CONTEXT.md para las decisiones
+- Todos los textos en español

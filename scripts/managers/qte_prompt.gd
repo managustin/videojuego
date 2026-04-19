@@ -1,24 +1,22 @@
 # qte_prompt.gd
-# Reusable Quick Time Event component.
-# Shows a key prompt with a countdown timer.
-# Emits qte_success or qte_failure signals.
+# Componente reutilizable de Quick Time Event (QTE).
+# Muestra una barra de cuenta regresiva.
+# Emite señales qte_success o qte_failure.
 #
-# Usage: Instance qte_prompt.tscn in a scene, connect to its signals,
-# and call start_qte() when ready to trigger.
+# Uso: Instanciar qte_prompt.tscn en una escena, conectar señales,
+# y llamar a start_qte() cuando sea necesario.
 
 extends Control
 
-## Emitted when the player presses the correct key in time.
+## Se emite cuando el jugador completa el QTE exitosamente.
 signal qte_success
-## Emitted when the timer runs out without correct input.
+## Se emite cuando se agota el tiempo sin acción correcta.
 signal qte_failure
 
-## The key the player must press (set in editor inspector).
-@export var target_key: Key = KEY_F
-## Seconds before the QTE times out.
-@export var time_limit: float = 2.0
-## Text displayed to the player (e.g., "Press F!").
-@export var prompt_text: String = "Press F!"
+## Segundos antes de que se agote el tiempo.
+@export var time_limit: float = 1.0
+## Texto mostrado al jugador (vacío = la escena padre maneja el texto).
+@export var prompt_text: String = ""
 
 @onready var prompt_label: Label = $VBoxContainer/PromptLabel
 @onready var timer_bar: ProgressBar = $VBoxContainer/TimerBar
@@ -57,19 +55,11 @@ func _process(delta: float) -> void:
 		_resolve_failure()
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if not is_active or is_resolved:
-		return
-
-	if event is InputEventKey and event.pressed and not event.echo:
-		if event.keycode == target_key:
-			_resolve_success()
-
 
 func _resolve_success() -> void:
 	is_active = false
 	is_resolved = true
-	result_label.text = "Success!"
+	result_label.text = "¡Éxito!"
 	result_label.add_theme_color_override("font_color", Color.GREEN)
 	qte_success.emit()
 
@@ -77,6 +67,6 @@ func _resolve_success() -> void:
 func _resolve_failure() -> void:
 	is_active = false
 	is_resolved = true
-	result_label.text = "Failed!"
+	result_label.text = "¡Fallaste!"
 	result_label.add_theme_color_override("font_color", Color.RED)
 	qte_failure.emit()
