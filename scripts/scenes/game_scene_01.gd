@@ -104,7 +104,10 @@ func _input(event: InputEvent) -> void:
 	enemy_sprite.play("enemigo_dispara")
 
 	if _hit_enemy:
-		# Acierto: dejar que la animación de disparo termine completa.
+		# Acierto: a los 1.22s el enemigo recibe el impacto y muere.
+		await get_tree().create_timer(1.22).timeout
+		enemy_sprite.play("enemigo_muere")
+		# Esperar a que termine la animación de disparo del jugador.
 		await player_sprite.animation_finished
 		qte_prompt._resolve_success()
 	else:
