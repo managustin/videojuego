@@ -18,6 +18,9 @@ var current_scene_index: int = 0
 ## Result of the game: "victory", "defeat", or "" (in progress).
 var game_result: String = ""
 
+## Ruta a la cinemática introductoria (se reproduce antes de la primera escena).
+var intro_cinematic_path: String = "res://scenes/intro_cinematic.tscn"
+
 ## Ordered list of gameplay scene paths.
 var scene_order: Array[String] = [
 	"res://scenes/game_scene_01.tscn",
@@ -75,8 +78,13 @@ func go_to_main_menu() -> void:
 	go_to_scene("res://scenes/main_menu.tscn")
 
 
-## Resets state and starts the game from the first scene.
+## Resets state and starts the game (cinemática intro → primera escena).
 func start_game() -> void:
 	reset_game()
+	go_to_scene(intro_cinematic_path)
+
+
+## Llamada por la cinemática al terminar. Inicia la primera escena de juego.
+func start_first_scene() -> void:
 	if scene_order.size() > 0:
 		go_to_scene(scene_order[0])

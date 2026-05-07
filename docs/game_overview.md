@@ -2,7 +2,7 @@
 
 ## Premisa
 
-El protagonista vive en las afueras de un pueblo fronterizo sin ley. Bandidos peligrosos y encuentros hostiles son una realidad cotidiana. El jugador debe sobrevivir a una serie de confrontaciones violentas reaccionando rápidamente a través de Quick Time Events (Eventos de Tiempo Rápido).
+El protagonista vive en las afueras de un pueblo fronterizo sin ley. Bandidos peligrosos y encuentros hostiles son una realidad cotidiana. El juego abre con una **cinemática introductoria** — una secuencia de imágenes que establece el contexto narrativo — y luego el jugador debe sobrevivir a una serie de confrontaciones violentas reaccionando rápidamente a través de Quick Time Events (Eventos de Tiempo Rápido).
 
 ## Ambientación
 

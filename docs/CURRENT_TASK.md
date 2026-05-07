@@ -1,22 +1,21 @@
 # Tarea Actual
 
-Completar la Escena de Duelo 01 (Fase 2).
+Cinemática introductoria implementada. Pendiente: asignar script en Godot y probar.
 
 ## Objetivo
-Finalizar la primera escena de combate con todos los elementos visuales y mecánicos:
+Agregar una cinemática introductoria que se reproduzca entre el menú y la primera escena de juego.
 
 ## Completado
-- [x] Fondo visual
-- [x] Sprites del personaje principal (caminata, disparo, muerte)
-- [x] Sprite del enemigo (disparo)
-- [x] Mecánica de clic sobre hitbox
-- [x] Barra de tiempo del QTE
-- [x] Tres caminos de resolución (acierto, fallo por clic erróneo, fallo por tiempo)
-- [x] Sistema de reintentos con reseteo
-- [x] Traducción al español
+- [x] Carpeta `assets/cinematics/intro/` con 11 imágenes (0.png a 10.png)
+- [x] Escena `intro_cinematic.tscn` creada manualmente en Godot
+- [x] Script `intro_cinematic.gd` con fade-in/out, zoom y duraciones configurables
+- [x] `GameManager` actualizado: `start_game()` → cinemática, nueva función `start_first_scene()`
+- [x] Documentación actualizada (gameplay, game_overview, technical_design, roadmap, task_list)
 
 ## Pendiente
-- [ ] Animación de muerte del enemigo cuando el jugador acierta
+- [ ] Asignar el script `intro_cinematic.gd` al nodo raíz `IntroCinematic` en Godot
+- [ ] Probar el flujo completo: Menú → Cinemática → Escena 01
+- [ ] Ajustar duraciones individuales de cada imagen desde el Inspector
 
 ## Restricciones
 - Mantener la arquitectura simple

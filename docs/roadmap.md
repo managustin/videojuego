@@ -13,9 +13,9 @@ Objetivo: Crear una versión mínima jugable con un flujo completo.
 - [x] Pantalla de resultados (victoria y derrota)
 - [x] Flujo de juego completo de principio a fin: Menú → Escena → QTE → Resultado → Menú
 
-## Fase 2: Arte y Mecánica de Duelo ← Actual
+## Fase 2: Arte, Mecánica de Duelo y Narrativa ← Actual
 
-Objetivo: Reemplazar placeholders con sprites reales e implementar mecánica de duelo completa.
+Objetivo: Reemplazar placeholders con sprites reales, implementar mecánica de duelo completa y añadir cinemática introductoria.
 
 - [x] Fondo visual añadido a la Escena 01
 - [x] Sprites del personaje principal con animaciones (caminata, disparo, muerte)
@@ -25,6 +25,11 @@ Objetivo: Reemplazar placeholders con sprites reales e implementar mecánica de 
 - [x] Sistema de reintentos con reseteo de animaciones
 - [x] Traducción completa de la interfaz al español
 - [ ] Animación de muerte del enemigo cuando el jugador acierta
+- [x] Cinemática introductoria: carpeta de assets y 11 imágenes
+- [x] Cinemática introductoria: escena `.tscn` creada
+- [x] Cinemática introductoria: script con fade-in/out, zoom y duraciones configurables
+- [x] Cinemática introductoria: `GameManager` actualizado para dirigir al intro antes de la Escena 01
+- [x] Cinemática introductoria: documentación actualizada
 
 ## Fase 3: Expansión
 

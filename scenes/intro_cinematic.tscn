@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://bhj0meo1wpgdd"]
+
+[ext_resource type="Script" uid="uid://cv2ijjmbg8s3v" path="res://scripts/scenes/intro_cinematic.gd" id="1_script"]
+
+[node name="IntroCinematic" type="Control" unique_id=1093557094]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+slide_durations = Array[float]([4.0, 3.0, 3.0, 3.0, 2.0, 1.0, 0.5, 2.0, 2.0, 3.0, 3.0])
+
+[node name="Background" type="ColorRect" parent="." unique_id=1705033356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ImageDisplay" type="TextureRect" parent="." unique_id=1646804601]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=59093734]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

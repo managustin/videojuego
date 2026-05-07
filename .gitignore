@@ -8,5 +8,5 @@
 /android/
 
 # General ignores
-*.import
+
 *.translation

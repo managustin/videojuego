@@ -20,6 +20,7 @@ project_root/
 │  └─ ai_workflow.md
 ├─ scenes/
 │  ├─ main_menu.tscn
+│  ├─ intro_cinematic.tscn
 │  ├─ game_scene_01.tscn
 │  ├─ result_screen.tscn
 │  ├─ components/
@@ -33,11 +34,14 @@ project_root/
 │  ├─ ui/
 │  ├─ scenes/
 │  │  ├─ main_menu.gd
+│  │  ├─ intro_cinematic.gd
 │  │  ├─ game_scene_01.gd
 │  │  └─ result_screen.gd
 │  └─ minigames/
 ├─ assets/
 │  ├─ backgrounds/
+│  ├─ cinematics/
+│  │  └─ intro/               (11 imágenes: 0.png a 10.png)
 │  ├─ characters/
 │  │  ├─ main/
 │  │  │  ├─ pj_stop_walking/    (90 frames — animación entra_en_escena)
@@ -57,6 +61,7 @@ project_root/
 | Escena | Archivo | Propósito |
 |-------|------|---------| 
 | Menú Principal | `scenes/main_menu.tscn` | Pantalla de título con botones Jugar y Salir |
+| Cinemática Introductoria | `scenes/intro_cinematic.tscn` | Secuencia de imágenes narrativas con fade-in/out |
 | Escena de Juego 01 | `scenes/game_scene_01.tscn` | Duelo con QTE basado en clic sobre hitbox |
 | Pantalla de Resultados | `scenes/result_screen.tscn` | Pantalla de victoria o derrota |
 | Prompt de QTE | `scenes/components/qte_prompt.tscn` | Componente reutilizable de QTE |
@@ -74,7 +79,8 @@ Registrado como autoload `GameManager` en `project.godot`.
 - Rastrear el progreso de la escena actual
 - Almacenar el resultado del juego (victoria/derrota)
 - Manejar transiciones de escenas
-- Proveer funciones de `start_game()` y `reset_game()`
+- Proveer funciones de `start_game()`, `start_first_scene()` y `reset_game()`
+- Dirigir el flujo a la cinemática introductoria antes de la primera escena
 
 **Señales:**
 - `lives_changed(new_lives: int)` — emitida cuando las vidas cambian
@@ -93,6 +99,42 @@ Un componente de escena reutilizable que puede ser instanciado en cualquier esce
 **Señales:**
 - `qte_success` — el jugador acertó a tiempo
 - `qte_failure` — se agotó el temporizador o el jugador falló
+
+## Cinemática Introductoria (intro_cinematic)
+
+### Estructura de Nodos
+
+```text
+IntroCinematic (Control)
+├─ Background (ColorRect negro, fondo de seguridad)
+├─ ImageDisplay (TextureRect, muestra cada imagen a pantalla completa)
+└─ FadeOverlay (ColorRect negro, para efectos de fade-in/fade-out)
+```
+
+### Descripción
+
+**Archivo:** `scripts/scenes/intro_cinematic.gd`
+
+Secuencia no interactiva de 11 imágenes (0.png a 10.png) que establece el contexto narrativo del juego. Se reproduce automáticamente al iniciar una partida, antes de la primera escena de juego.
+
+**Propiedades Exportadas:**
+- `slide_durations: Array[float]` — duración en segundos de cada imagen (11 valores, ajustables desde el Inspector)
+- `fade_in_duration: float` — duración del fade-in en la primera imagen (por defecto: 1.5s)
+- `fade_out_duration: float` — duración del fade-out en la última imagen (por defecto: 1.5s)
+- `zoom_start_scale: float` — escala inicial del zoom de entrada (por defecto: 1.15)
+- `zoom_duration: float` — duración del efecto de zoom (por defecto: 3.0s)
+
+### Flujo de Estados
+
+```text
+_ready() → _load_textures() → _play_sequence()
+  → Imagen 0: fade-in (overlay negro → transparente) + zoom (1.15 → 1.0)
+  → Imágenes 1-9: se muestran secuencialmente, cada una su duración
+  → Imagen 10: se muestra, luego fade-out (overlay transparente → negro)
+  → _on_cinematic_finished() → GameManager.start_first_scene()
+```
+
+---
 
 ## Escena de Duelo (game_scene_01)
 
@@ -134,10 +176,10 @@ Todas las transiciones de escenas usan `get_tree().change_scene_to_file(path)` a
 
 **Flujo:**
 ```text
-Menú Principal → Escena de Juego 01 → Pantalla de Resultados → Menú Principal (bucle)
+Menú Principal → Cinemática Intro → Escena de Juego 01 → Pantalla de Resultados → Menú Principal (bucle)
 ```
 
-El array `GameManager.scene_order` define la secuencia de las escenas de juego. Añadir una nueva escena es tan simple como añadir su ruta al array.
+Al presionar "Jugar", `GameManager.start_game()` dirige a la cinemática introductoria. Al terminar la cinemática, se llama a `GameManager.start_first_scene()` que inicia el flujo normal de escenas. El array `GameManager.scene_order` define la secuencia de las escenas de juego. Añadir una nueva escena es tan simple como añadir su ruta al array.
 
 ## Localización
 

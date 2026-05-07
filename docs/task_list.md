@@ -27,6 +27,11 @@
 - [x] Secuencia de muerte del personaje con interrupción de animación y temporizadores
 - [x] Sistema de reintentos con reseteo de animaciones y estado
 - [x] Traducción completa de todos los textos de la interfaz al español
+- [x] Cinemática introductoria: carpeta `assets/cinematics/intro/` con 11 imágenes (0.png a 10.png)
+- [x] Cinemática introductoria: escena `intro_cinematic.tscn` creada (Control + TextureRect + ColorRects)
+- [x] Cinemática introductoria: script `intro_cinematic.gd` con fade-in/out, zoom y duraciones configurables
+- [x] Cinemática introductoria: `GameManager` actualizado (`start_game()` → intro, nueva función `start_first_scene()`)
+- [x] Cinemática introductoria: documentación actualizada (gameplay, game_overview, technical_design, roadmap)
 
 ## En Progreso
 
@@ -34,6 +39,9 @@ _(nada en progreso actualmente)_
 
 ## Próximos Pasos
 
+- [ ] Asignar el script `intro_cinematic.gd` al nodo raíz de `intro_cinematic.tscn` en Godot
+- [ ] Probar el flujo completo: Menú → Cinemática → Escena 01
+- [ ] Ajustar duraciones de cada imagen en el Inspector
 - [ ] Añadir animación de muerte del enemigo cuando el jugador acierta
 - [ ] Añadir efectos de sonido sincronizados con las animaciones de disparo y muerte
 - [ ] Añadir música de fondo

@@ -2,14 +2,15 @@
 
 ## Ciclo Principal (Core Loop)
 
-1. El personaje entra caminando desde fuera de pantalla hasta su posición de combate
-2. Aparece el texto "¡DISPARÁ!" junto con una barra de tiempo que decrece
-3. El jugador debe hacer clic izquierdo sobre la hitbox del enemigo antes de que se agote el tiempo
-4. Si el jugador acierta → animación completa de disparo → mensaje de éxito → avanza
-5. Si el jugador hace clic fuera de la hitbox → animación de disparo + reacción del enemigo → muerte del personaje → pierde una vida
-6. Si el tiempo se agota sin disparar → el enemigo dispara → muerte del personaje → pierde una vida
-7. Si las vidas llegan a cero → pantalla de derrota
-8. Si se completan todas las escenas → pantalla de victoria
+1. **Cinemática introductoria:** secuencia de imágenes que establece el contexto narrativo
+2. El personaje entra caminando desde fuera de pantalla hasta su posición de combate
+3. Aparece el texto "¡DISPARÁ!" junto con una barra de tiempo que decrece
+4. El jugador debe hacer clic izquierdo sobre la hitbox del enemigo antes de que se agote el tiempo
+5. Si el jugador acierta → animación completa de disparo → mensaje de éxito → avanza
+6. Si el jugador hace clic fuera de la hitbox → animación de disparo + reacción del enemigo → muerte del personaje → pierde una vida
+7. Si el tiempo se agota sin disparar → el enemigo dispara → muerte del personaje → pierde una vida
+8. Si las vidas llegan a cero → pantalla de derrota
+9. Si se completan todas las escenas → pantalla de victoria
 
 ## Sistema de Vidas
 
@@ -18,6 +19,16 @@
 - Las vidas se mantienen a lo largo de toda la sesión de juego
 - Llegar a 0 vidas activa la pantalla de derrota
 - Las vidas se muestran en pantalla como corazones (♥)
+
+## Cinemática Introductoria
+
+Antes de la primera escena de juego se reproduce una cinemática no interactiva que establece el contexto narrativo. Consiste en una secuencia de 11 imágenes estáticas (0.png a 10.png) con las siguientes características:
+
+- Cada imagen tiene una **duración configurable** independiente
+- La primera imagen (0.png) tiene un **fade-in desde negro** y un **zoom suave de entrada**
+- La última imagen (10.png) tiene un **fade-out a negro** antes de pasar a la Escena 01
+- La secuencia es completamente automática, sin interacción del jugador
+- Al terminar, se transiciona automáticamente a `game_scene_01`
 
 ## Mecánica de Duelo (Escena 01)
 
