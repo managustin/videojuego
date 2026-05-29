@@ -2,7 +2,12 @@
 
 ## Premisa
 
-El protagonista vive en las afueras de un pueblo fronterizo sin ley. Bandidos peligrosos y encuentros hostiles son una realidad cotidiana. El juego abre con una **cinemática introductoria** — una secuencia de imágenes que establece el contexto narrativo — y luego el jugador debe sobrevivir a una serie de confrontaciones violentas reaccionando rápidamente a través de Quick Time Events (Eventos de Tiempo Rápido).
+El protagonista vive en las afueras de un pueblo fronterizo sin ley. Bandidos peligrosos y encuentros hostiles son una realidad cotidiana. 
+
+El juego abre con una **cinemática introductoria combinada** que establece el contexto narrativo: comienza con una secuencia de 11 imágenes artísticas estáticas que muestran la crudeza del lejano oeste, e inmediatamente transiciona a la **Escena del Mapache**, una secuencia animada de diálogo en 3D (256 fotogramas renderizados en Blender a 30 FPS) donde un peculiar y sabio mapache entabla un diálogo clave con el jugador, preparándolo para el peligro inminente. 
+
+Tras esta introducción, el jugador debe sobrevivir a una serie de confrontaciones violentas reaccionando rápidamente a través de Quick Time Events (Eventos de Tiempo Rápido).
+
 
 ## Ambientación
 

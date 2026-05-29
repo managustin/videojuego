@@ -20,12 +20,13 @@ El jugador se enfrenta a peligrosos encuentros en la frontera y debe reaccionar 
 
 **MVP — En Progreso**
 
-El proyecto está en su fase inicial de desarrollo. La versión mínima jugable incluye:
+El proyecto está en su fase de expansión de mecánicas y pulido de narrativa. La versión jugable actual incluye:
 
-- Menú principal
-- Una escena de juego con un encuentro QTE
-- Sistema de vidas (3 vidas)
-- Pantallas de victoria y derrota
+- Menú principal con fondo animado
+- **Cinemática introductoria combinada:** secuencia de 11 imágenes estáticas seguidas por la **Escena del Mapache** (animación fluida en 3D de 256 fotogramas de diálogo renderizados en Blender a 30 FPS).
+- Una escena de juego con un encuentro QTE (duelo del oeste con detección sincrónica por clic sobre hitbox)
+- Sistema de vidas (3 vidas) con representación visual
+- Pantallas de victoria y derrota con flujo de reintentos
 
 ## Objetivos del MVP
 
@@ -35,7 +36,9 @@ El proyecto está en su fase inicial de desarrollo. La versión mínima jugable 
 - [x] Componente QTE reutilizable
 - [x] Una escena de juego con QTE
 - [x] Pantalla de resultados (victoria/derrota)
+- [x] Cinemática introductoria con la escena de diálogo en 3D del mapache
 - [x] Flujo de juego completo de principio a fin
+
 
 ## Estructura del Proyecto
 

@@ -40,11 +40,13 @@ extends Control
 
 # ---------- Estado ----------
 
-## Cantidad total de imágenes en la secuencia.
-const TOTAL_SLIDES: int = 11
-## Ruta base donde están las imágenes.
-const IMAGES_PATH: String = "res://assets/cinematics/intro/"
+# ---------- Estado ----------
 
+const STATIC_SLIDES: int = 11
+const ANIMATION_FRAMES: int = 256 # fotogramas de dialog0000 a dialog0255
+const BLENDER_FPS: float = 30.0 # Ajuste de FPS de la animación (24, 30 o 60)
+
+const IMAGES_PATH: String = "res://assets/cinematics/intro/"
 var _textures: Array[Texture2D] = []
 var _current_slide: int = 0
 
@@ -69,14 +71,24 @@ func _ready() -> void:
 
 ## Carga las 11 texturas desde la carpeta de assets.
 func _load_textures() -> void:
-	for i in range(TOTAL_SLIDES):
+	# 1. Cargar las 11 imágenes estáticas de tu compañero
+	for i in range(STATIC_SLIDES):
 		var path = IMAGES_PATH + str(i) + ".png"
 		var tex = load(path) as Texture2D
 		if tex:
 			_textures.append(tex)
 		else:
 			push_warning("intro_cinematic: No se pudo cargar " + path)
-			_textures.append(null)
+
+	# 2. Cargar tus fotogramas renderizados en Blender
+	for i in range(ANIMATION_FRAMES):
+		var frame_name = "dialog" + str(i).pad_zeros(4) + ".png"
+		var path = IMAGES_PATH + frame_name
+		var tex = load(path) as Texture2D
+		if tex:
+			_textures.append(tex)
+		else:
+			push_warning("intro_cinematic: No se pudo cargar fotograma de Blender: " + path)
 
 
 # ---------- Secuencia principal ----------
@@ -116,9 +128,12 @@ func _show_slide(index: int) -> void:
 
 ## Devuelve la duración configurada para una imagen, con fallback a 3.0s.
 func _get_slide_duration(index: int) -> float:
+	# Si es una de las primeras imágenes, respeta el tiempo del inspector
 	if index >= 0 and index < slide_durations.size():
 		return slide_durations[index]
-	return 3.0
+		
+	# Si es un fotograma de Blender, avanza rápido según los FPS
+	return 1.0 / BLENDER_FPS
 
 
 # ---------- Efectos ----------
