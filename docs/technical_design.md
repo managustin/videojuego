@@ -41,7 +41,7 @@ project_root/
 ├─ assets/
 │  ├─ backgrounds/
 │  ├─ cinematics/
-│  │  └─ intro/               (11 imágenes estáticas `0.png` a `10.png` + 256 fotogramas animados `dialog0000.png` a `dialog0255.png`)
+│  │  └─ intro/               (11 imágenes estáticas `0.png` a `10.png`)
 │  ├─ characters/
 │  │  ├─ main/
 │  │  │  ├─ pj_capoeira/         (104 frames — animación en menú principal)
@@ -116,12 +116,10 @@ IntroCinematic (Control)
 
 **Archivo:** `scripts/scenes/intro_cinematic.gd`
 
-Secuencia no interactiva combinada que establece el contexto narrativo del juego. Se reproduce automáticamente al iniciar una partida, antes de la primera escena de juego. Carga de forma contigua las 11 imágenes estáticas y los 256 fotogramas de la animación en 3D del diálogo del mapache.
+Secuencia no interactiva que establece el contexto narrativo del juego. Se reproduce automáticamente al iniciar una partida, antes de la primera escena de juego. Carga de forma secuencial las 11 imágenes estáticas de introducción.
 
 **Constantes Técnicas:**
 - `STATIC_SLIDES: int = 11` — Número de imágenes estáticas de introducción.
-- `ANIMATION_FRAMES: int = 256` — Cantidad de fotogramas renderizados de la escena del mapache (`dialog0000.png` a `dialog0255.png`).
-- `BLENDER_FPS: float = 30.0` — Fotogramas por segundo a los que se reproduce la animación del mapache (tiempo de espera por frame = `1.0 / 30.0` segundos).
 
 **Propiedades Exportadas:**
 - `slide_durations: Array[float]` — duración en segundos de cada imagen estática (11 valores independientes, ajustables desde el Inspector)
@@ -133,14 +131,12 @@ Secuencia no interactiva combinada que establece el contexto narrativo del juego
 ### Flujo de Estados
 
 ```text
-_ready() → _load_textures()
-  → Carga imágenes estáticas (0 a 10)
-  → Carga fotogramas de Blender (dialog0000 a dialog0255)
-  → _play_sequence()
+  → _ready() → _load_textures()
+      → Carga imágenes estáticas (0 a 10)
+      → _play_sequence()
       → Diapositiva 0: fade-in (overlay negro → transparente) + zoom (1.15 → 1.0) (duración: slide_durations[0])
-      → Diapositivas 1-10: se muestran secuencialmente (duración: slide_durations[index])
-      → Diapositivas 11-266 (Escena del Mapache): animación continua a 30 FPS (duración: 1.0 / 30.0s por frame)
-      → Diapositiva 266: fade-out a negro (duración: fade_out_duration)
+      → Diapositivas 1-9: se muestran secuencialmente (duración: slide_durations[index])
+      → Diapositiva 10: fade-out a negro (duración: fade_out_duration)
       → _on_cinematic_finished() → GameManager.start_first_scene()
 ```
 

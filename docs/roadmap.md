@@ -26,9 +26,8 @@ Objetivo: Reemplazar placeholders con sprites reales, implementar mecánica de d
 - [x] Traducción completa de la interfaz al español
 - [x] Animación de muerte del enemigo cuando el jugador acierta (`enemigo_muere`)
 - [x] Cinemática introductoria: carpeta de assets y 11 imágenes estáticas
-- [x] Cinemática introductoria: integración de la **Escena del Mapache** (256 fotogramas animados en 3D desde Blender)
 - [x] Cinemática introductoria: escena `.tscn` creada
-- [x] Cinemática introductoria: script `intro_cinematic.gd` con soporte de 30 FPS, fade-in/out, zoom y duraciones configurables
+- [x] Cinemática introductoria: script `intro_cinematic.gd` con soporte de fade-in/out, zoom y duraciones configurables
 - [x] Cinemática introductoria: `GameManager` actualizado para dirigir al intro antes de la Escena 01
 - [x] Cinemática introductoria: documentación conceptual y técnica actualizada
 

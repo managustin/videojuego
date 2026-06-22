@@ -22,20 +22,11 @@
 
 ## Cinemática Introductoria
 
-Antes de la primera escena de juego se reproduce una cinemática no interactiva combinada que establece el contexto narrativo del lejano oeste. Consiste en dos partes bien diferenciadas que se reproducen de manera continua y automática:
-
-### 1. Secuencia Narrativa Estática (Trabajo del Compañero)
-Es una secuencia de 11 imágenes artísticas estáticas (`0.png` a `10.png`) con las siguientes características:
+Antes de la primera escena de juego se reproduce una cinemática no interactiva que establece el contexto narrativo del lejano oeste. Consiste en una secuencia de 11 imágenes artísticas estáticas (`0.png` a `10.png`) con las siguientes características:
 - Cada imagen tiene una **duración independiente configurable** desde el Inspector.
 - La primera imagen (`0.png`) tiene un **fade-in suave desde negro** y un efecto de **zoom de entrada**.
 - La secuencia avanza automáticamente hasta llegar a la imagen `10.png`.
-
-### 2. Escena del Mapache (Animación de Blender)
-Inmediatamente después de la secuencia estática, la cinemática pasa a reproducir la escena animada del mapache:
-- Consiste en una secuencia continua de **256 fotogramas en 3D** (`dialog0000.png` a `dialog0255.png`).
-- Se reproduce de manera fluida y optimizada a **30 FPS** (`1.0 / 30.0` segundos por fotograma).
-- Muestra al personaje del mapache dialogando activamente, preparando psicológicamente al jugador para su inminente duelo.
-- Al mostrarse el último fotograma (`dialog0255.png`), se realiza un **fade-out a negro** que transiciona de forma limpia hacia la `game_scene_01`.
+- Al finalizar la última imagen (`10.png`), se realiza un **fade-out a negro** que transiciona de forma limpia hacia la `game_scene_01`.
 
 
 ## Mecánica de Duelo (Escena 01)

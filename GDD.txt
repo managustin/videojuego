@@ -1,0 +1,516 @@
+================================================================================
+INSTRUCCIONES DE FORMATEO PARA GENERAR EL PDF
+================================================================================
+
+Este archivo contiene el contenido completo del Game Design Document (GDD) de
+"West or Die". Está pensado para ser pasado a Claude (vía su website) para que
+genere un PDF profesional y bien presentado.
+
+Indicaciones de estilo para el PDF:
+
+- Tipografía principal: una serif elegante (ej. Playfair Display o similar
+  western/vintage). Cuerpo en una sans-serif limpia (ej. Source Sans Pro).
+- Paleta de colores: tonos cálidos de western — marrón oscuro (#3E2723),
+  arena/beige (#D7CCC8), rojo ladrillo (#8D3A2F), dorado (#C8A951).
+- Portada: título grande "WEST OR DIE" con estética western, subtítulo
+  "Game Design Document", datos del proyecto debajo.
+- Encabezados de sección: numerados, en color marrón oscuro, con una línea
+  decorativa debajo.
+- Tablas: bordes finos, encabezados con fondo marrón/arena.
+- Listas con viñetas: usar bullets tipo • o ▸.
+- Tareas completadas: usar ✓ en verde. Pendientes: usar ○ en gris.
+- Diagramas de flujo: representar con cajas y flechas (→) de forma visual.
+- Pie de página: "West or Die · GDD v0.2 · Proyecto Universitario 2026"
+- Formato: A4, márgenes normales, interlineado cómodo.
+- Incluir saltos de página entre secciones principales.
+- Si es posible, agregar íconos decorativos sutiles (revólver, estrella de
+  sheriff, cactus) como adornos en encabezados o márgenes.
+
+================================================================================
+CONTENIDO DEL GDD — INICIO
+================================================================================
+
+
+GAME DESIGN DOCUMENT
+WEST OR DIE
+Un juego de Quick Time Events ambientado en el Lejano Oeste
+
+Proyecto Universitario · 2026
+Motor: Godot 4.6 · Versión: 0.2 (Fase 2 — Arte y Narrativa)
+
+
+────────────────────────────────────────────────────────────────────────────────
+1. FICHA DEL PROYECTO
+────────────────────────────────────────────────────────────────────────────────
+
+Título:              West or Die
+Género:              QTE / Aventura narrativa
+Plataforma:          PC (Windows / Linux / Mac)
+Motor:               Godot 4.6 con GDScript
+Renderizador:        Compatibilidad GL (GL Compatibility)
+Duración estimada:   10 – 15 minutos por partida
+Equipo:              2 estudiantes
+Estado actual:       Fase 2 — Arte, mecánica de duelo y narrativa
+
+
+────────────────────────────────────────────────────────────────────────────────
+2. CONCEPTO DEL JUEGO
+────────────────────────────────────────────────────────────────────────────────
+
+West or Die es un juego corto de acción y reacción ambientado en el Lejano
+Oeste. El protagonista vive en las afueras de un pueblo fronterizo sin ley,
+donde los bandidos y los encuentros hostiles son parte de la vida cotidiana.
+El jugador debe sobrevivir a una serie de confrontaciones respondiendo a
+Quick Time Events (QTE) antes de que se agote el tiempo.
+
+El enfoque del juego es la simplicidad y la tensión: cada escena presenta una
+amenaza, y el jugador debe reaccionar con precisión haciendo clic sobre el
+enemigo. No hay mecánicas complejas ni mundos abiertos, solo reflejos, ritmo
+y supervivencia.
+
+El juego abre con una cinemática introductoria que establece el
+contexto narrativo: una secuencia de imágenes artísticas estáticas que
+muestran la crudeza del lejano oeste y preparan al jugador para el peligro que
+se avecina.
+
+2.1. Tono y Estética
+
+  • Divertido, un poco absurdo, con un clima de western tenso.
+  • Personajes modelados y animados en 3D (renderizados como sprites 2D).
+  • Fondos estáticos evocadores con ambientación del lejano oeste.
+  • Narrativa directa en texto, sin diálogos elaborados en gameplay.
+  • Cinemática introductoria con imágenes artísticas y animación 3D.
+  • Música e iconografía del Lejano Oeste (a completar en fases posteriores).
+
+2.2. Lo que el juego NO es
+
+  • No es un juego de mundo abierto.
+  • No es un juego de acción basado en físicas complejas.
+  • No tiene sistemas de inventario, crafting ni RPG.
+  • No es un producto comercial; es un proyecto de aprendizaje acotado.
+  • No tiene IA enemiga compleja ni combate libre.
+
+
+────────────────────────────────────────────────────────────────────────────────
+3. MECÁNICAS DE JUEGO
+────────────────────────────────────────────────────────────────────────────────
+
+3.1. Ciclo Principal (Core Loop)
+
+El flujo básico del juego se repite en cada escena de duelo:
+
+  1. Cinemática introductoria (solo antes de la primera escena):
+     → Secuencia de 11 imágenes estáticas con fade-in, zoom y transiciones.
+     → Fade-out a negro y transición automática a la primera escena.
+
+  2. Entrada del personaje:
+     → El protagonista camina desde fuera de pantalla hasta su posición de
+        combate usando una animación de caminata (Tween con transición SINE).
+
+  3. Activación del QTE:
+     → Aparece el texto "¡DISPARÁ!" junto con una barra de tiempo decreciente.
+     → El jugador debe hacer clic izquierdo sobre la hitbox del enemigo antes
+        de que se agote el tiempo (1.0 segundo por defecto).
+
+  4. Resolución:
+     → Si acierta (clic sobre el enemigo): animación de disparo del jugador
+        → el enemigo muere → éxito → avanza.
+     → Si falla el clic (clic fuera de la hitbox): ambos disparan → el
+        enemigo reacciona → muerte del jugador → pierde una vida.
+     → Si se agota el tiempo sin disparar: el enemigo dispara primero →
+        muerte del jugador → pierde una vida.
+
+  5. Resultado:
+     → Si quedan vidas: el duelo se reintenta (reseteo de animaciones).
+     → Si las vidas llegan a 0: pantalla de derrota.
+     → Si se completan todas las escenas: pantalla de victoria.
+
+3.2. Sistema de Vidas
+
+  • El jugador comienza con 3 vidas (representadas con corazones ♥ rojos).
+  • Cada QTE fallido (por clic erróneo o por tiempo agotado) cuesta 1 vida.
+  • Las vidas se mantienen a lo largo de toda la sesión de juego.
+  • Al llegar a 0 vidas se activa la pantalla de derrota (Game Over).
+  • El display de vidas se actualiza dinámicamente en pantalla.
+
+3.3. Mecánica de Duelo — Tres Caminos Posibles
+
+  ┌────────────────────────┬──────────────────────────┬──────────────────────┐
+  │ Camino                 │ Condición                │ Resultado            │
+  ├────────────────────────┼──────────────────────────┼──────────────────────┤
+  │ Acierto                │ Clic dentro de la hitbox │ Animación completa   │
+  │                        │ del enemigo              │ de disparo → éxito   │
+  ├────────────────────────┼──────────────────────────┼──────────────────────┤
+  │ Fallo por disparo      │ Clic fuera de la hitbox  │ Ambos disparan →     │
+  │ erróneo                │                          │ muerte del jugador   │
+  │                        │                          │ → pierde vida        │
+  ├────────────────────────┼──────────────────────────┼──────────────────────┤
+  │ Fallo por inacción     │ No hacer clic antes de   │ Enemigo dispara →    │
+  │                        │ que acabe el tiempo      │ muerte del jugador   │
+  │                        │                          │ → pierde vida        │
+  └────────────────────────┴──────────────────────────┴──────────────────────┘
+
+3.4. Detección de Acierto (Técnica)
+
+La detección se realiza mediante una consulta sincrónica de físicas
+(PhysicsPointQueryParameters2D) en el momento del clic. Esto determina
+instantáneamente si el clic del jugador cayó sobre el Area2D del enemigo,
+evitando condiciones de carrera que podrían surgir con enfoques basados en
+señales asíncronas.
+
+3.5. Tipos de QTE
+
+  Implementado actualmente:
+    • Disparar al enemigo: hacer clic izquierdo sobre la hitbox del enemigo
+      antes de que se acabe el tiempo. Barra de tiempo visual decreciente.
+
+  Planeados para fases futuras:
+    • Presionar una entre varias teclas mostradas en pantalla.
+    • Secuencia corta de teclas (presionar A, luego B, luego C).
+    • Machacar una tecla rápidamente para llenar una barra.
+    • Mantener presionada una tecla durante un tiempo corto.
+    • Tiempo de reacción tras una señal visual/auditiva.
+
+
+────────────────────────────────────────────────────────────────────────────────
+4. FLUJO DE PANTALLAS
+────────────────────────────────────────────────────────────────────────────────
+
+El juego sigue un flujo lineal y directo:
+
+  ┌──────────────┐    ┌──────────────────┐    ┌──────────────────┐
+  │ Menú         │───▸│ Cinemática       │───▸│ Escena de Juego  │
+  │ Principal    │    │ Introductoria    │    │ (Duelo QTE)      │
+  └──────────────┘    └──────────────────┘    └────────┬─────────┘
+                                                       │
+                                              ┌────────▼─────────┐
+                                              │  ¿QTE exitoso?   │
+                                              └────────┬─────────┘
+                                                ┌──────┴──────┐
+                                          SÍ    │             │   NO
+                                       ┌────────▼──┐   ┌─────▼────────┐
+                                       │ ¿Más      │   │ Pierde vida  │
+                                       │ escenas?  │   └─────┬────────┘
+                                       └─────┬─────┘         │
+                                        ┌────┴────┐    ┌─────▼────────┐
+                                   SÍ   │         │ NO │ ¿Vidas > 0?  │
+                              ┌─────────▼──┐ ┌────▼───┐└─────┬────────┘
+                              │ Siguiente  │ │Victoria│ ┌────┴────┐
+                              │ escena     │ │        │ │    SÍ   │ NO
+                              └────────────┘ └────┬───┘ │  ┌─────▼───┐
+                                                  │     │  │Derrota  │
+                                                  │     │  └────┬────┘
+                                            ┌─────▼─────▼──┐   │
+                                            │  Pantalla de  │◂──┘
+                                            │  Resultado    │
+                                            └───────┬───────┘
+                                                    │
+                                            ┌───────▼───────┐
+                                            │ Menú Principal│
+                                            └───────────────┘
+
+4.1. Pantallas Existentes
+
+  • Menú Principal:
+    Pantalla de título con botones "Jugar" y "Salir". Incluye un personaje
+    animado en el fondo (animación de capoeira en loop) que le da vida al
+    menú.
+
+  • Cinemática Introductoria:
+    Secuencia no interactiva:
+    — 11 imágenes artísticas estáticas (0.png a 10.png) con
+      duraciones configurables, fade-in + zoom en la primera imagen.
+    — Fade-out a negro al finalizar y transición automática a la escena
+      de juego.
+
+  • Escena de Juego (Duelo):
+    Fondo estático del lejano oeste. El personaje entra caminando con
+    animación. Se activa el QTE con barra de tiempo y texto "¡DISPARÁ!".
+    Tres posibles desenlaces con animaciones de disparo y muerte.
+
+  • Pantalla de Resultado:
+    Muestra victoria o derrota según el estado del juego. Permite volver
+    al menú principal o reintentar.
+
+
+────────────────────────────────────────────────────────────────────────────────
+5. NARRATIVA Y AMBIENTACIÓN
+────────────────────────────────────────────────────────────────────────────────
+
+5.1. Premisa
+
+El protagonista es un habitante del Lejano Oeste que debe enfrentarse a
+sucesivos peligros en su comunidad fronteriza para sobrevivir.
+
+5.2. Estructura Narrativa
+
+La historia se narra en tres capas:
+
+  1. Cinemática introductoria: establece el mundo y el tono a través de imágenes estáticas.
+
+  2. Textos en escena: cada duelo abre con una frase corta y directa que
+     describe la amenaza. Ejemplo actual:
+       "Uno que está re loco sale de la nada..."
+       "¡DISPARÁ!"
+
+  3. Mensajes de resultado: frases breves que refuerzan la tensión.
+       Éxito:  "¡Lo lograste! El forajido cae."
+       Fallo:  "¡Le erraste!" / "Lamentable..."
+       Muerte: "Fue más rápido... la oscuridad te envuelve."
+
+5.3. Tono
+
+  • Tenso y peligroso, pero con toques de humor absurdo.
+  • Un poco crudo y directo.
+  • Presentación sencilla, sin pretensiones.
+  • Centrado en la reacción inmediata, no en la reflexión narrativa.
+
+
+────────────────────────────────────────────────────────────────────────────────
+6. ARTE Y ANIMACIONES
+────────────────────────────────────────────────────────────────────────────────
+
+6.1. Estilo Visual
+
+Los personajes están modelados en 3D y renderizados como secuencias de
+sprites 2D (frame-by-frame). Esto le da al juego una estética distintiva
+que combina la profundidad visual del 3D con la simplicidad técnica del 2D
+en Godot.
+
+6.2. Assets de Personajes (Estado Actual)
+
+  Personaje Principal:
+    • entra_en_escena (pj_stop_walking) — 90 frames: caminata de entrada
+    • shoot (pj_dispara) — 160 frames: animación de disparo
+    • pj_muere1 — 64 frames: animación de muerte
+    • pj_capoeira — 104 frames: animación decorativa del menú principal
+
+  Enemigo 1:
+    • enemigo_dispara — 160 frames: animación de disparo del enemigo
+    • enemigo_muere — animación de muerte cuando el jugador acierta
+
+6.3. Assets de Cinemática
+
+  Secuencia Estática:
+    • 11 imágenes artísticas (0.png a 10.png) en assets/cinematics/intro/
+
+6.4. Escenarios
+
+  • Fondo de la Escena 01: imagen estática generada del lejano oeste.
+  • Fondo del Menú: con personaje animado (capoeira) en loop.
+
+6.5. Interfaz
+
+  • Corazones rojos (♥) para representar vidas.
+  • Barra de tiempo decreciente para el QTE.
+  • Texto grande "¡DISPARÁ!" como prompt de acción.
+  • Botones simples en menú y pantalla de resultado.
+  • Toda la interfaz en español.
+
+6.6. Sonido (Planeado — Fase 3)
+
+  • Música de fondo: melodías atmosféricas de western, tensas.
+  • Efectos de sonido: disparo, muerte, clics de menú, ambiente.
+  • Sincronización de efectos con las animaciones de disparo y muerte.
+
+
+────────────────────────────────────────────────────────────────────────────────
+7. ARQUITECTURA TÉCNICA
+────────────────────────────────────────────────────────────────────────────────
+
+7.1. Estructura del Proyecto
+
+  project_root/
+  ├─ project.godot
+  ├─ README.md
+  ├─ MASTER_CONTEXT.md
+  ├─ GDD_WestOrDie.pdf
+  ├─ docs/
+  │   ├─ game_overview.md
+  │   ├─ gameplay.md
+  │   ├─ technical_design.md
+  │   ├─ roadmap.md
+  │   ├─ task_list.md
+  │   ├─ ai_workflow.md
+  │   └─ CURRENT_TASK.md
+  ├─ scenes/
+  │   ├─ main_menu.tscn
+  │   ├─ intro_cinematic.tscn
+  │   ├─ game_scene_01.tscn
+  │   ├─ result_screen.tscn
+  │   ├─ components/
+  │   │   └─ qte_prompt.tscn
+  │   └─ minigames/
+  ├─ scripts/
+  │   ├─ autoload/
+  │   │   └─ game_manager.gd
+  │   ├─ managers/
+  │   │   └─ qte_prompt.gd
+  │   ├─ scenes/
+  │   │   ├─ main_menu.gd
+  │   │   ├─ intro_cinematic.gd
+  │   │   ├─ game_scene_01.gd
+  │   │   └─ result_screen.gd
+  │   ├─ ui/
+  │   └─ minigames/
+  ├─ assets/
+  │   ├─ backgrounds/
+  │   ├─ cinematics/
+  │   │   └─ intro/  (11 imágenes estáticas)
+  │   ├─ characters/
+  │   │   ├─ main/
+  │   │   │   ├─ pj_capoeira/    (104 frames)
+  │   │   │   ├─ pj_stop_walking/ (90 frames)
+  │   │   │   ├─ pj_dispara/     (160 frames)
+  │   │   │   └─ pj_muere1/      (64 frames)
+  │   │   └─ enemigo1/           (160 frames)
+  │   ├─ props/
+  │   └─ ui/
+  ├─ audio/
+  │   ├─ music/
+  │   └─ sfx/
+  └─ tests/
+
+7.2. Sistemas Globales
+
+  GameManager (Autoload):
+    • Rastrea las vidas del jugador y emite señal lives_changed.
+    • Mantiene el índice de progresión de escenas (scene_order).
+    • Almacena el resultado del juego (victoria/derrota).
+    • Maneja todas las transiciones de escenas.
+    • Dirige el flujo: Menú → Cinemática → Primera Escena.
+    • Funciones principales: start_game(), start_first_scene(),
+      lose_life(), go_to_next_scene(), reset_game().
+
+  QTE Prompt (Componente Reutilizable):
+    • Componente de escena instanciable en cualquier escena de juego.
+    • Propiedades configurables: time_limit, prompt_text.
+    • Emite señales: qte_success, qte_failure.
+    • Diseñado para ser extendido con nuevos tipos de QTE.
+
+7.3. Convenciones de Código
+
+  • snake_case para todo: archivos, variables, funciones, escenas.
+  • Una responsabilidad clara por script.
+  • Comentarios que explican propósito y lógica no evidente.
+  • Señales de Godot para comunicación entre nodos (no polling).
+  • @export para valores configurables desde el Inspector.
+  • Solo sintaxis de Godot 4 (variables tipadas, @onready, .emit()).
+  • Todos los archivos en UTF-8 sin BOM.
+  • Todos los textos de interfaz en español.
+
+
+────────────────────────────────────────────────────────────────────────────────
+8. HOJA DE RUTA
+────────────────────────────────────────────────────────────────────────────────
+
+Fase 1 — MVP (Completada) ✓
+
+  ✓ Estructura del proyecto y carpetas
+  ✓ Documentación inicial (README, game overview, gameplay, technical design,
+    roadmap, task list, ai workflow)
+  ✓ Escena del menú principal con botones Jugar/Salir
+  ✓ GameManager (autoload): vidas, flujo de escenas, resultado
+  ✓ Componente QTE reutilizable (qte_prompt)
+  ✓ Primera escena de juego con encuentro QTE
+  ✓ Pantalla de resultado (victoria y derrota)
+  ✓ Flujo completo: Menú → Escena → QTE → Resultado → Menú
+
+Fase 2 — Arte, Mecánica de Duelo y Narrativa (En Progreso) ← ACTUAL
+
+  ✓ Fondo visual añadido a la Escena 01
+  ✓ Sprites del personaje principal con animaciones (caminata, disparo,
+    muerte, capoeira en menú)
+  ✓ Sprite del enemigo con animación de disparo y muerte
+  ✓ Mecánica de QTE cambiada de presionar tecla a clic sobre hitbox (Area2D)
+  ✓ Lógica de 3 caminos: acierto, fallo por clic erróneo, fallo por
+    tiempo agotado
+  ✓ Sistema de reintentos con reseteo de animaciones
+  ✓ Traducción completa de la interfaz al español
+  ✓ Cinemática introductoria: 11 imágenes estáticas con fade-in/out y zoom
+  ✓ GameManager actualizado para dirigir al intro antes de la Escena 01
+  ✓ Documentación actualizada y sincronizada
+  ○ Asignar script de cinemática al nodo raíz en Godot y probar flujo
+  ○ Ajustar duraciones individuales de cada imagen desde el Inspector
+
+Fase 3 — Expansión (Pendiente)
+
+  ○ Segunda escena de juego con QTE diferente
+  ○ Nueva variante de QTE (secuencia de teclas o machacar)
+  ○ Minijuego simple (ej: duelo de reacción del lejano oeste)
+  ○ Retroalimentación visual mejorada (animaciones, señales)
+  ○ Transiciones entre escenas (fundidos de entrada/salida)
+  ○ Más texto narrativo y variedad de escenas
+  ○ Expandir scene_order en GameManager
+
+Fase 4 — Pulido (Pendiente)
+
+  ○ Música de fondo (western atmosférica)
+  ○ Efectos de sonido (disparo, muerte, clics, ambiente)
+  ○ Mejoras de tipografía y tema visual
+  ○ Progresión de dificultad (tiempos más cortos en escenas posteriores)
+  ○ Secuencia final de 5 a 8 escenas
+  ○ Pruebas de juego y ajuste de balance
+  ○ Limpieza final de documentación
+
+
+────────────────────────────────────────────────────────────────────────────────
+9. ALCANCE Y OBJETIVOS DEL PROYECTO
+────────────────────────────────────────────────────────────────────────────────
+
+Este es un proyecto universitario realizado por dos estudiantes. Los
+objetivos son:
+
+  1. Crear un juego corto, completo y jugable en el tiempo disponible.
+  2. Aprender los fundamentos del desarrollo de videojuegos con Godot 4.
+  3. Entregar un prototipo jugable ("vertical slice") bien terminado.
+  4. Mantener un alcance realista y alcanzable para el equipo.
+
+El proyecto prioriza la viabilidad y la integridad del producto sobre la
+ambición. El alcance está deliberadamente limitado para asegurar una
+entrega de calidad.
+
+9.1. Alcance Preferido
+
+  • 5 a 8 escenas totales de duelo.
+  • 2 minijuegos simples como máximo.
+  • 10 a 15 minutos de duración total por partida.
+  • Un número reducido de mecánicas reutilizables.
+
+9.2. Fuera de Alcance (No-Goals)
+
+  • Sistemas de combate extensos.
+  • Exploración con movimiento libre.
+  • Sistemas de inventario o crafting.
+  • IA enemiga compleja.
+  • Generación procedural.
+  • Árboles de diálogo con ramificaciones masivas.
+  • Sistemas online o multijugador.
+  • Sistemas avanzados de guardado/carga.
+  • Plugins o dependencias externas.
+
+
+────────────────────────────────────────────────────────────────────────────────
+10. DESARROLLO CON ASISTENCIA DE IA
+────────────────────────────────────────────────────────────────────────────────
+
+Este proyecto se desarrolla con gran asistencia de agentes de IA. El flujo
+de trabajo prioriza:
+
+  • Cambios pequeños y testeables.
+  • Simplicidad por sobre sofisticación.
+  • Código legible y amigable para principiantes.
+  • Documentación siempre sincronizada con la implementación.
+  • Incrementos mínimos funcionales.
+
+El archivo MASTER_CONTEXT.md en la raíz del repositorio actúa como fuente
+de verdad para cualquier agente de IA que trabaje en el proyecto, definiendo
+la visión del producto, las convenciones técnicas y las restricciones de
+alcance.
+
+
+================================================================================
+
+West or Die · GDD v0.2 · Proyecto Universitario 2026
+
+================================================================================
