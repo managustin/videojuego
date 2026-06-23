@@ -81,7 +81,8 @@ func go_to_main_menu() -> void:
 ## Resets state and starts the game (cinemática intro → primera escena).
 func start_game() -> void:
 	reset_game()
-	go_to_scene(intro_cinematic_path)
+	# TEMPORAL: Saltar la cinemática introductoria para pruebas rápidas
+	start_first_scene()
 
 
 ## Llamada por la cinemática al terminar. Inicia la primera escena de juego.
