@@ -25,16 +25,26 @@ extends Control
 @export var enemy_animation_name: String = "enemigo2_sentado_dispara"
 
 # ---------- Configuración Fase 2: Contraataque ----------
-## Nombre de la animación de disparo del jugador en el contraataque.
+## Nombre de la animación de disparo del jugador en el contraataque (Fase 2 éxito).
 @export var player_shoot_animation_name: String = "pj_dispara_duelo"
-## Nombre de la animación de muerte del jugador (Fase 2: falla el contraataque).
-@export var death_animation_2_name: String = "pj_muere2.2"
+## Nombre de la animación del jugador disparando pero muriendo (Fase 2 fallo).
+@export var player_shoot_and_die_animation_name: String = "pj_dispara_pero_muere"
+## Nombre de la animación del enemigo disparando parado.
+@export var enemy_parado_dispara_animation_name: String = "enemigo_parado_dispara"
+## Nombre de la animación de muerte del enemigo parado.
+@export var enemy_parado_muere_animation_name: String = "enemigo_muere"
 ## Tiempo límite para disparar en la Fase 2 (segundos).
 @export var shoot_qte_time_limit: float = 1.5
 ## Texto de la barra de tiempo en la Fase 2.
 @export var shoot_qte_prompt_text: String = "¡DISPARÁ!"
-## Tiempo de espera (segundos) tras un disparo fallido antes de la animación de muerte.
-@export var shoot_miss_death_delay: float = 1.8
+## Tiempo de espera (segundos) tras iniciar QTE de Fase 2 para que el enemigo empiece a disparar parado.
+@export var enemy_shoot_qte_delay: float = 0.5
+## Tiempo de espera (segundos) para retrasar la animación del jugador 'pj_dispara_pero_muere' tras el fallo del QTE.
+@export var failure_player_shoot_delay: float = 0.0
+## Tiempo de espera (segundos) para retrasar o reiniciar la animación del enemigo 'enemigo_parado_dispara' tras el fallo del QTE.
+@export var failure_enemy_shoot_delay: float = 0.0
+## Tiempo de espera (segundos) para retrasar la animación de muerte del enemigo al acertar el disparo.
+@export var enemy_death_delay: float = 0.2
 
 # ---------- Configuración de Tiempos y Diálogos (Fase 1) ----------
 ## Tiempo límite para cubrirse en el QTE.
@@ -229,32 +239,15 @@ func _input(event: InputEvent) -> void:
 			_hit_enemy = true
 			break
 
-	# Detener el temporizador del QTE
-	qte_prompt.is_active = false
-
-	# Reproducir animación de disparo del jugador
-	if player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(player_shoot_animation_name):
-		player_sprite.sprite_frames.set_animation_loop(player_shoot_animation_name, false)
-		player_sprite.play(player_shoot_animation_name)
-	else:
-		push_warning("game_scene_03: Animación '" + player_shoot_animation_name + "' no encontrada.")
-
 	if _hit_enemy:
-		# Acierto: esperar a que termine la animación de disparo del jugador
-		await player_sprite.animation_finished
+		# Acierto: detener el QTE inmediatamente y resolver como éxito
+		qte_prompt.is_active = false
 		qte_prompt._resolve_success()
 	else:
-		# Fallo: esperar un momento y luego morir
-		await get_tree().create_timer(shoot_miss_death_delay).timeout
-		# Interrumpir con la animación de muerte
-		if player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(death_animation_2_name):
-			player_sprite.sprite_frames.set_animation_loop(death_animation_2_name, false)
-			player_sprite.play(death_animation_2_name)
-			await player_sprite.animation_finished
-		else:
-			push_warning("game_scene_03: Animación '" + death_animation_2_name + "' no encontrada. Simulando...")
-			await get_tree().create_timer(1.5).timeout
-		qte_prompt._resolve_failure()
+		# Fallo por clic errado: no hacemos nada aquí para dejar que el tiempo corra
+		# hasta el final del QTE, cumpliendo con la regla de que la animación de
+		# pj_dispara_duelo se activa "al final del tiempo del qte".
+		pass
 
 
 ## Inicia la Fase 2 del QTE (disparar al enemigo).
@@ -269,6 +262,18 @@ func _iniciar_fase_disparo() -> void:
 	qte_prompt.prompt_text = shoot_qte_prompt_text
 	qte_prompt.time_limit = shoot_qte_time_limit
 	qte_prompt.start_qte()
+
+	# Iniciar animación del enemigo disparando parado a cierto tiempo del QTE
+	if enemy_shoot_qte_delay >= 0:
+		var enemy_shoot_timer = get_tree().create_timer(enemy_shoot_qte_delay)
+		enemy_shoot_timer.timeout.connect(func():
+			if _current_qte_phase == 2 and qte_prompt.is_active and not qte_prompt.is_resolved:
+				if enemy_sprite.sprite_frames and enemy_sprite.sprite_frames.has_animation(enemy_parado_dispara_animation_name):
+					enemy_sprite.sprite_frames.set_animation_loop(enemy_parado_dispara_animation_name, false)
+					enemy_sprite.play(enemy_parado_dispara_animation_name)
+				else:
+					push_warning("game_scene_03: Animación del enemigo '" + enemy_parado_dispara_animation_name + "' no encontrada.")
+		)
 
 
 # ==================== RESOLUCIÓN DEL QTE ====================
@@ -286,6 +291,42 @@ func _on_qte_success() -> void:
 
 	elif _current_qte_phase == 2:
 		# Fase 2 completada: el jugador disparó y acertó.
+		
+		var player_done = [false]
+		var enemy_done = [false]
+
+		var play_player = func():
+			if player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(player_shoot_animation_name):
+				player_sprite.sprite_frames.set_animation_loop(player_shoot_animation_name, false)
+				player_sprite.stop()
+				player_sprite.frame = 0
+				player_sprite.play(player_shoot_animation_name)
+				await player_sprite.animation_finished
+			else:
+				push_warning("game_scene_03: Animación '" + player_shoot_animation_name + "' no encontrada.")
+			player_done[0] = true
+
+		var play_enemy = func():
+			if enemy_death_delay > 0:
+				await get_tree().create_timer(enemy_death_delay).timeout
+			
+			if enemy_sprite.sprite_frames and enemy_sprite.sprite_frames.has_animation(enemy_parado_muere_animation_name):
+				enemy_sprite.sprite_frames.set_animation_loop(enemy_parado_muere_animation_name, false)
+				enemy_sprite.stop()
+				enemy_sprite.frame = 0
+				enemy_sprite.play(enemy_parado_muere_animation_name)
+				await enemy_sprite.animation_finished
+			else:
+				push_warning("game_scene_03: Animación del enemigo '" + enemy_parado_muere_animation_name + "' no encontrada.")
+			enemy_done[0] = true
+
+		play_player.call()
+		play_enemy.call()
+
+		# Esperar a que terminen ambas animaciones y sus respectivos retrasos
+		while not (player_done[0] and enemy_done[0]):
+			await get_tree().process_frame
+
 		# Transicionar a la pantalla de victoria/resultados
 		var fade_out = create_tween()
 		fade_out.tween_property(_fade_overlay, "color:a", 1.0, 1.0)
@@ -305,6 +346,8 @@ func _on_qte_failure() -> void:
 		# Fase 1 fallida: no se cubrió a tiempo → pj_muere2
 		if player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(death_animation_name):
 			player_sprite.sprite_frames.set_animation_loop(death_animation_name, false)
+			player_sprite.stop()
+			player_sprite.frame = 0
 			player_sprite.play(death_animation_name)
 			await player_sprite.animation_finished
 		else:
@@ -312,27 +355,60 @@ func _on_qte_failure() -> void:
 			await get_tree().create_timer(1.5).timeout
 
 	elif _current_qte_phase == 2:
-		# Fase 2 fallida: no disparó a tiempo (timeout sin clic) → pj_muere2.2
-		if not _shot_fired:
-			if player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(death_animation_2_name):
-				player_sprite.sprite_frames.set_animation_loop(death_animation_2_name, false)
-				player_sprite.play(death_animation_2_name)
+		# Fase 2 fallida: el tiempo se terminó (ya sea por inacción o por haber errado el disparo)
+		
+		var player_done = [false]
+		var enemy_done = [false]
+
+		var play_player = func():
+			if failure_player_shoot_delay > 0:
+				await get_tree().create_timer(failure_player_shoot_delay).timeout
+			
+			if is_instance_valid(player_sprite) and player_sprite.sprite_frames and player_sprite.sprite_frames.has_animation(player_shoot_and_die_animation_name):
+				player_sprite.sprite_frames.set_animation_loop(player_shoot_and_die_animation_name, false)
+				player_sprite.stop()
+				player_sprite.frame = 0
+				player_sprite.play(player_shoot_and_die_animation_name)
 				await player_sprite.animation_finished
 			else:
-				push_warning("game_scene_03: Animación '" + death_animation_2_name + "' no encontrada. Simulando...")
-				await get_tree().create_timer(1.5).timeout
+				push_warning("game_scene_03: Animación '" + player_shoot_and_die_animation_name + "' no encontrada.")
+			player_done[0] = true
+
+		var play_enemy = func():
+			if failure_enemy_shoot_delay > 0:
+				await get_tree().create_timer(failure_enemy_shoot_delay).timeout
+			
+			if is_instance_valid(enemy_sprite) and enemy_sprite.sprite_frames and enemy_sprite.sprite_frames.has_animation(enemy_parado_dispara_animation_name):
+				enemy_sprite.sprite_frames.set_animation_loop(enemy_parado_dispara_animation_name, false)
+				enemy_sprite.stop()
+				enemy_sprite.frame = 0
+				enemy_sprite.play(enemy_parado_dispara_animation_name)
+				await enemy_sprite.animation_finished
+			else:
+				push_warning("game_scene_03: Animación del enemigo '" + enemy_parado_dispara_animation_name + "' no encontrada.")
+			enemy_done[0] = true
+
+		play_player.call()
+		play_enemy.call()
+
+		# Esperar a que terminen ambas animaciones y sus respectivos retrasos
+		while not (player_done[0] and enemy_done[0]):
+			await get_tree().process_frame
 
 	# Perder vida
 	GameManager.lose_life()
 	if GameManager.is_game_over():
-		narrative_label.text = "No lograste cubrirte a tiempo... la oscuridad te envuelve."
+		if _current_qte_phase == 1:
+			narrative_label.text = "No lograste cubrirte a tiempo... la oscuridad te envuelve."
+		else:
+			narrative_label.text = "Fuiste demasiado lento con el gatillo..."
 		await get_tree().create_timer(1.5).timeout
 		GameManager.go_to_result()
 	else:
 		if _current_qte_phase == 1:
 			narrative_label.text = "¡Muy lento!"
 		else:
-			if _shot_fired:
+			if _shot_fired and not _hit_enemy:
 				narrative_label.text = "¡Le erraste!"
 			else:
 				narrative_label.text = "Lamentable..."

@@ -280,163 +280,293 @@
 [ext_resource type="Texture2D" uid="uid://dlxtcf3y3bp7l" path="res://assets/characters/main/pj_dispara_duelo/0079.png" id="121_88lic"]
 [ext_resource type="Texture2D" uid="uid://cqhi1a5p4l6qe" path="res://assets/characters/enemigo2/sentado_dispara/0079.png" id="121_tv08m"]
 [ext_resource type="Texture2D" uid="uid://bwftuowisrf7j" path="res://assets/characters/main/pj_muere2/0079.png" id="121_va0xc"]
+[ext_resource type="Texture2D" uid="uid://edlugwwngndr" path="res://assets/characters/main/pj_dispara_pero_muere/0001.png" id="122_qw5vc"]
 [ext_resource type="Texture2D" uid="uid://481k43k33l1o" path="res://assets/characters/main/pj_muere2/0080.png" id="122_unp4c"]
 [ext_resource type="Texture2D" uid="uid://4m2ev6orbhn7" path="res://assets/characters/enemigo2/sentado_dispara/0080.png" id="122_wtoh1"]
 [ext_resource type="Texture2D" uid="uid://qssp6c4ytie3" path="res://assets/characters/main/pj_muere2/0081.png" id="123_6gfh8"]
 [ext_resource type="Texture2D" uid="uid://4mndwfosqaoy" path="res://assets/characters/enemigo2/sentado_dispara/0081.png" id="123_7c5q2"]
+[ext_resource type="Texture2D" uid="uid://blkemfeqa4vqt" path="res://assets/characters/main/pj_dispara_pero_muere/0002.png" id="123_khfi3"]
 [ext_resource type="Texture2D" uid="uid://bi7l1tvskb24m" path="res://assets/characters/main/pj_muere2/0082.png" id="124_fr6eb"]
 [ext_resource type="Texture2D" uid="uid://t8n44hvokw15" path="res://assets/characters/enemigo2/sentado_dispara/0082.png" id="124_ipk58"]
+[ext_resource type="Texture2D" uid="uid://dtjgxr3kwrup2" path="res://assets/characters/main/pj_dispara_pero_muere/0003.png" id="124_jqoej"]
 [ext_resource type="Texture2D" uid="uid://dbdgxf8mtivqs" path="res://assets/characters/main/pj_muere2/0083.png" id="125_7w5wq"]
+[ext_resource type="Texture2D" uid="uid://b1it4ghltey1j" path="res://assets/characters/main/pj_dispara_pero_muere/0004.png" id="125_lm3t8"]
 [ext_resource type="Texture2D" uid="uid://dwacbrq6s70vt" path="res://assets/characters/enemigo2/sentado_dispara/0083.png" id="125_s7etw"]
 [ext_resource type="Texture2D" uid="uid://bma7smvggt2jj" path="res://assets/characters/enemigo2/sentado_dispara/0084.png" id="126_cytc0"]
 [ext_resource type="Texture2D" uid="uid://ehpvpct88bxb" path="res://assets/characters/main/pj_muere2/0084.png" id="126_g7gyb"]
+[ext_resource type="Texture2D" uid="uid://c02p2ciuek6jq" path="res://assets/characters/main/pj_dispara_pero_muere/0005.png" id="126_sa1x6"]
 [ext_resource type="Texture2D" uid="uid://dod1k28l3fg75" path="res://assets/characters/main/pj_muere2/0085.png" id="127_jc1sh"]
 [ext_resource type="Texture2D" uid="uid://bu7n1g5ro6lx2" path="res://assets/characters/enemigo2/sentado_dispara/0085.png" id="127_lg38r"]
+[ext_resource type="Texture2D" uid="uid://cqwk5cq44f6n8" path="res://assets/characters/main/pj_dispara_pero_muere/0006.png" id="127_vqbhh"]
 [ext_resource type="Texture2D" uid="uid://cibahohrxgsr8" path="res://assets/characters/main/pj_muere2/0086.png" id="128_q3vhs"]
 [ext_resource type="Texture2D" uid="uid://ccem87558b58g" path="res://assets/characters/enemigo2/sentado_dispara/0086.png" id="128_vs2yj"]
+[ext_resource type="Texture2D" uid="uid://ccxjpu2o8tvvk" path="res://assets/characters/main/pj_dispara_pero_muere/0007.png" id="128_vsc83"]
+[ext_resource type="Texture2D" uid="uid://bqeinr07hsgt6" path="res://assets/characters/main/pj_dispara_pero_muere/0008.png" id="129_bypxg"]
 [ext_resource type="Texture2D" uid="uid://d10mr57gcnf1o" path="res://assets/characters/main/pj_muere2/0087.png" id="129_nxt35"]
 [ext_resource type="Texture2D" uid="uid://bjil2okw8j3qx" path="res://assets/characters/enemigo2/sentado_dispara/0087.png" id="129_vdt3d"]
+[ext_resource type="Texture2D" uid="uid://b8qogitfc6ry3" path="res://assets/characters/main/pj_dispara_pero_muere/0009.png" id="130_5d4c8"]
 [ext_resource type="Texture2D" uid="uid://bjwwcjunh0le1" path="res://assets/characters/main/pj_muere2/0088.png" id="130_b6t67"]
 [ext_resource type="Texture2D" uid="uid://5013hlkvlye1" path="res://assets/characters/enemigo2/sentado_dispara/0088.png" id="130_x7jrn"]
 [ext_resource type="Texture2D" uid="uid://cf5h8thj5eka7" path="res://assets/characters/enemigo2/sentado_dispara/0089.png" id="131_epjj1"]
+[ext_resource type="Texture2D" uid="uid://bd5ciy8k3txgj" path="res://assets/characters/main/pj_dispara_pero_muere/0010.png" id="131_fp78s"]
 [ext_resource type="Texture2D" uid="uid://bcbnao8wpiamw" path="res://assets/characters/main/pj_muere2/0089.png" id="131_fwxgp"]
 [ext_resource type="Texture2D" uid="uid://dt7otcng2bkv7" path="res://assets/characters/main/pj_muere2/0090.png" id="132_8t2ev"]
 [ext_resource type="Texture2D" uid="uid://dg5pvngll1gr4" path="res://assets/characters/enemigo2/sentado_dispara/0090.png" id="132_b583h"]
+[ext_resource type="Texture2D" uid="uid://dj2njuy4mal7j" path="res://assets/characters/main/pj_dispara_pero_muere/0011.png" id="132_tyc5j"]
 [ext_resource type="Texture2D" uid="uid://cbplhr7jxa48x" path="res://assets/characters/main/pj_muere2/0091.png" id="133_mnlj4"]
+[ext_resource type="Texture2D" uid="uid://cicrh1dqvaa3s" path="res://assets/characters/main/pj_dispara_pero_muere/0012.png" id="133_t4bkr"]
 [ext_resource type="Texture2D" uid="uid://b1o5cjhlebmui" path="res://assets/characters/enemigo2/sentado_dispara/0091.png" id="133_tixga"]
+[ext_resource type="Texture2D" uid="uid://bamcbrnh7jlpk" path="res://assets/characters/main/pj_dispara_pero_muere/0013.png" id="134_c72g3"]
 [ext_resource type="Texture2D" uid="uid://cbxtrecwou7sv" path="res://assets/characters/main/pj_muere2/0092.png" id="134_ehsem"]
 [ext_resource type="Texture2D" uid="uid://c1lq0iv4b6034" path="res://assets/characters/enemigo2/sentado_dispara/0092.png" id="134_pmsk3"]
+[ext_resource type="Texture2D" uid="uid://kjm6v3fi5s6c" path="res://assets/characters/main/pj_dispara_pero_muere/0014.png" id="135_4svhc"]
 [ext_resource type="Texture2D" uid="uid://cy0s561k03k0d" path="res://assets/characters/enemigo2/sentado_dispara/0093.png" id="135_77ogj"]
 [ext_resource type="Texture2D" uid="uid://dk6uadmukkhi3" path="res://assets/characters/main/pj_muere2/0093.png" id="135_nt45x"]
 [ext_resource type="Texture2D" uid="uid://ipoixmbr107f" path="res://assets/characters/main/pj_muere2/0094.png" id="136_km6ug"]
+[ext_resource type="Texture2D" uid="uid://c4ukx2iv20m4j" path="res://assets/characters/main/pj_dispara_pero_muere/0015.png" id="136_lgjsc"]
 [ext_resource type="Texture2D" uid="uid://dpo24mercy1ci" path="res://assets/characters/enemigo2/sentado_dispara/0094.png" id="136_qp4jy"]
 [ext_resource type="Texture2D" uid="uid://c2lvkglh5jqk0" path="res://assets/characters/main/pj_muere2/0095.png" id="137_0evag"]
+[ext_resource type="Texture2D" uid="uid://cqju48ciyjgwk" path="res://assets/characters/main/pj_dispara_pero_muere/0016.png" id="137_4p3xq"]
 [ext_resource type="Texture2D" uid="uid://b0t87edhdfq01" path="res://assets/characters/enemigo2/sentado_dispara/0095.png" id="137_4042b"]
+[ext_resource type="Texture2D" uid="uid://lfs17jn8883c" path="res://assets/characters/main/pj_dispara_pero_muere/0017.png" id="138_3apse"]
 [ext_resource type="Texture2D" uid="uid://j0fdqq1p042e" path="res://assets/characters/enemigo2/sentado_dispara/0096.png" id="138_8g42s"]
 [ext_resource type="Texture2D" uid="uid://16wla7ye1i5p" path="res://assets/characters/main/pj_muere2/0096.png" id="138_me2co"]
 [ext_resource type="Texture2D" uid="uid://bx7ymitdc246f" path="res://assets/characters/main/pj_muere2/0097.png" id="139_2k61w"]
 [ext_resource type="Texture2D" uid="uid://ddabhwsediay8" path="res://assets/characters/enemigo2/sentado_dispara/0097.png" id="139_ieprd"]
+[ext_resource type="Texture2D" uid="uid://dg3dugnbni6kt" path="res://assets/characters/main/pj_dispara_pero_muere/0018.png" id="139_svhy1"]
+[ext_resource type="Texture2D" uid="uid://5gtbky7akqww" path="res://assets/characters/main/pj_dispara_pero_muere/0019.png" id="140_6nujq"]
 [ext_resource type="Texture2D" uid="uid://b8b70gu35ohxg" path="res://assets/characters/main/pj_muere2/0098.png" id="140_m8j4h"]
 [ext_resource type="Texture2D" uid="uid://neohnykghlxe" path="res://assets/characters/enemigo2/sentado_dispara/0098.png" id="140_r0u6k"]
 [ext_resource type="Texture2D" uid="uid://djedby1xxqcwt" path="res://assets/characters/enemigo2/sentado_dispara/0099.png" id="141_2ogr8"]
 [ext_resource type="Texture2D" uid="uid://dtcjgekn71wyt" path="res://assets/characters/main/pj_muere2/0099.png" id="141_qxhqr"]
+[ext_resource type="Texture2D" uid="uid://b7lff7d5memyh" path="res://assets/characters/main/pj_dispara_pero_muere/0020.png" id="141_weyo8"]
 [ext_resource type="Texture2D" uid="uid://d1jj02rettdlg" path="res://assets/characters/main/pj_muere2/0100.png" id="142_06q8i"]
+[ext_resource type="Texture2D" uid="uid://drchjxqk1frv7" path="res://assets/characters/main/pj_dispara_pero_muere/0021.png" id="142_fmq6l"]
 [ext_resource type="Texture2D" uid="uid://cne76875o8rvt" path="res://assets/characters/enemigo2/sentado_dispara/0100.png" id="142_lho1l"]
 [ext_resource type="Texture2D" uid="uid://bi3roqciwpqib" path="res://assets/characters/main/pj_muere2/0101.png" id="143_pwve8"]
 [ext_resource type="Texture2D" uid="uid://dtj3h7tfvjqea" path="res://assets/characters/enemigo2/sentado_dispara/0101.png" id="143_qjk7k"]
+[ext_resource type="Texture2D" uid="uid://b7rvmvlg6obn3" path="res://assets/characters/main/pj_dispara_pero_muere/0022.png" id="143_tgs6x"]
 [ext_resource type="Texture2D" uid="uid://4bs7g210fvqd" path="res://assets/characters/enemigo2/sentado_dispara/0102.png" id="144_bvhfw"]
 [ext_resource type="Texture2D" uid="uid://c1v547sakne5s" path="res://assets/characters/main/pj_muere2/0102.png" id="144_tbdvn"]
+[ext_resource type="Texture2D" uid="uid://cqw0hk750km30" path="res://assets/characters/main/pj_dispara_pero_muere/0023.png" id="144_xc5pw"]
 [ext_resource type="Texture2D" uid="uid://cqudvuh1gmuks" path="res://assets/characters/enemigo2/sentado_dispara/0103.png" id="145_64f0p"]
 [ext_resource type="Texture2D" uid="uid://dlpk8mv41wy8q" path="res://assets/characters/main/pj_muere2/0103.png" id="145_gspfv"]
+[ext_resource type="Texture2D" uid="uid://bufoi6mv1rpdj" path="res://assets/characters/main/pj_dispara_pero_muere/0024.png" id="145_jwedo"]
+[ext_resource type="Texture2D" uid="uid://cpqvupjvu7svv" path="res://assets/characters/main/pj_dispara_pero_muere/0025.png" id="146_5xnoe"]
 [ext_resource type="Texture2D" uid="uid://dxkxkr7ntpaxe" path="res://assets/characters/enemigo2/sentado_dispara/0104.png" id="146_wuu4v"]
 [ext_resource type="Texture2D" uid="uid://dfw7jdcad1vpv" path="res://assets/characters/main/pj_muere2/0104.png" id="146_xmp0s"]
+[ext_resource type="Texture2D" uid="uid://biukglp554q4" path="res://assets/characters/main/pj_dispara_pero_muere/0026.png" id="147_2plgo"]
 [ext_resource type="Texture2D" uid="uid://cbjwlajn8h6t3" path="res://assets/characters/main/pj_muere2/0105.png" id="147_d8hwb"]
 [ext_resource type="Texture2D" uid="uid://bve6px2csg8pp" path="res://assets/characters/enemigo2/sentado_dispara/0105.png" id="147_j0ktb"]
 [ext_resource type="Texture2D" uid="uid://bx7ymf8t5xngp" path="res://assets/characters/enemigo2/sentado_dispara/0106.png" id="148_8exca"]
+[ext_resource type="Texture2D" uid="uid://dap30vtvshnj" path="res://assets/characters/main/pj_dispara_pero_muere/0027.png" id="148_jy8ie"]
 [ext_resource type="Texture2D" uid="uid://btvhr0sjisx54" path="res://assets/characters/main/pj_muere2/0106.png" id="148_k6ghc"]
+[ext_resource type="Texture2D" uid="uid://bhcahg3nlhpp8" path="res://assets/characters/main/pj_dispara_pero_muere/0028.png" id="149_7u7qy"]
 [ext_resource type="Texture2D" uid="uid://dgs23ovmnbqbm" path="res://assets/characters/enemigo2/sentado_dispara/0107.png" id="149_ouo7e"]
 [ext_resource type="Texture2D" uid="uid://d33otbb8wmu8c" path="res://assets/characters/enemigo2/sentado_dispara/0108.png" id="150_4njhu"]
+[ext_resource type="Texture2D" uid="uid://cviw7ye52pufw" path="res://assets/characters/main/pj_dispara_pero_muere/0029.png" id="150_5exfy"]
 [ext_resource type="Texture2D" uid="uid://crj5vbde686vc" path="res://assets/characters/enemigo2/sentado_dispara/0109.png" id="151_hikcl"]
+[ext_resource type="Texture2D" uid="uid://c1rwgb2b07xw8" path="res://assets/characters/main/pj_dispara_pero_muere/0030.png" id="151_pegfl"]
 [ext_resource type="Texture2D" uid="uid://u4rr388j6oo5" path="res://assets/characters/enemigo2/sentado_dispara/0110.png" id="152_p43c7"]
+[ext_resource type="Texture2D" uid="uid://d0tfeiw1vpd06" path="res://assets/characters/main/pj_dispara_pero_muere/0031.png" id="152_scdti"]
 [ext_resource type="Texture2D" uid="uid://d37uouhrga3o5" path="res://assets/characters/enemigo2/sentado_dispara/0111.png" id="153_e2fui"]
+[ext_resource type="Texture2D" uid="uid://cg0exq8djpmjw" path="res://assets/characters/main/pj_dispara_pero_muere/0032.png" id="153_jnuac"]
+[ext_resource type="Texture2D" uid="uid://wi2b4wfvt5ff" path="res://assets/characters/main/pj_dispara_pero_muere/0033.png" id="154_i32mv"]
 [ext_resource type="Texture2D" uid="uid://ck514kug2a4qn" path="res://assets/characters/enemigo2/sentado_dispara/0112.png" id="154_pt5n8"]
+[ext_resource type="Texture2D" uid="uid://wyxedjk7tyxw" path="res://assets/characters/main/pj_dispara_pero_muere/0034.png" id="155_aeu2f"]
 [ext_resource type="Texture2D" uid="uid://cmbwvp8xwu7i2" path="res://assets/characters/enemigo2/sentado_dispara/0113.png" id="155_hsq8s"]
+[ext_resource type="Texture2D" uid="uid://bedljfabv2npe" path="res://assets/characters/main/pj_dispara_pero_muere/0035.png" id="156_tln3l"]
 [ext_resource type="Texture2D" uid="uid://croxquvhbknfa" path="res://assets/characters/enemigo2/sentado_dispara/0114.png" id="156_xms6r"]
 [ext_resource type="Texture2D" uid="uid://dbnachf7jarek" path="res://assets/characters/enemigo2/sentado_dispara/0115.png" id="157_gb6l6"]
+[ext_resource type="Texture2D" uid="uid://dsd1r3gc87be6" path="res://assets/characters/main/pj_dispara_pero_muere/0036.png" id="157_ym02t"]
 [ext_resource type="Texture2D" uid="uid://dg64xfobv3kem" path="res://assets/characters/enemigo2/sentado_dispara/0116.png" id="158_agiyj"]
+[ext_resource type="Texture2D" uid="uid://cp32hr0e6e1ks" path="res://assets/characters/main/pj_dispara_pero_muere/0037.png" id="158_ry04i"]
 [ext_resource type="Texture2D" uid="uid://be3k1423818p4" path="res://assets/characters/enemigo2/sentado_dispara/0117.png" id="159_odrvx"]
+[ext_resource type="Texture2D" uid="uid://cr7m2vpk7jln6" path="res://assets/characters/main/pj_dispara_pero_muere/0038.png" id="159_pl5ek"]
+[ext_resource type="Texture2D" uid="uid://cdlq6ow1g3e77" path="res://assets/characters/main/pj_dispara_pero_muere/0039.png" id="160_qrf14"]
 [ext_resource type="Texture2D" uid="uid://b2asf6bm4tmph" path="res://assets/characters/enemigo2/sentado_dispara/0118.png" id="160_xd5c6"]
+[ext_resource type="Texture2D" uid="uid://cpkpx4i5kkc7p" path="res://assets/characters/main/pj_dispara_pero_muere/0040.png" id="161_dbfjh"]
 [ext_resource type="Texture2D" uid="uid://brex6ymmec70v" path="res://assets/characters/enemigo2/sentado_dispara/0119.png" id="161_fimnd"]
 [ext_resource type="Texture2D" uid="uid://cjudmlmhsn41s" path="res://assets/characters/enemigo2/sentado_dispara/0120.png" id="162_o708p"]
+[ext_resource type="Texture2D" uid="uid://bjalf355ojvxu" path="res://assets/characters/main/pj_dispara_pero_muere/0041.png" id="162_xybir"]
 [ext_resource type="Texture2D" uid="uid://dtdwxs7qkjlm6" path="res://assets/characters/enemigo2/sentado_dispara/0121.png" id="163_7mwrk"]
+[ext_resource type="Texture2D" uid="uid://fy6fqvdjkhiw" path="res://assets/characters/main/pj_dispara_pero_muere/0042.png" id="163_84kxv"]
+[ext_resource type="Texture2D" uid="uid://tdhwwr7cojr1" path="res://assets/characters/main/pj_dispara_pero_muere/0043.png" id="164_1ogrj"]
 [ext_resource type="Texture2D" uid="uid://b7gkukrt534gq" path="res://assets/characters/enemigo2/sentado_dispara/0122.png" id="164_vhl1q"]
 [ext_resource type="Texture2D" uid="uid://41w0yyrdgi66" path="res://assets/characters/enemigo2/sentado_dispara/0123.png" id="165_jytii"]
+[ext_resource type="Texture2D" uid="uid://crum04735qalm" path="res://assets/characters/main/pj_dispara_pero_muere/0044.png" id="165_otsdm"]
+[ext_resource type="Texture2D" uid="uid://b77alumvsnguh" path="res://assets/characters/main/pj_dispara_pero_muere/0045.png" id="166_6m8x5"]
 [ext_resource type="Texture2D" uid="uid://dpevp5shvgxx8" path="res://assets/characters/enemigo2/sentado_dispara/0124.png" id="166_waopb"]
+[ext_resource type="Texture2D" uid="uid://drbew3rpwwj4b" path="res://assets/characters/main/pj_dispara_pero_muere/0046.png" id="167_6wf3a"]
 [ext_resource type="Texture2D" uid="uid://crnsaete26car" path="res://assets/characters/enemigo2/sentado_dispara/0125.png" id="167_ady66"]
+[ext_resource type="Texture2D" uid="uid://bo522w8wt43fp" path="res://assets/characters/main/pj_dispara_pero_muere/0047.png" id="168_lovb1"]
 [ext_resource type="Texture2D" uid="uid://cbe7qage8anqr" path="res://assets/characters/enemigo2/sentado_dispara/0126.png" id="168_pe4dc"]
 [ext_resource type="Texture2D" uid="uid://d4co6qpy2pddw" path="res://assets/characters/enemigo2/sentado_dispara/0127.png" id="169_81v3p"]
+[ext_resource type="Texture2D" uid="uid://dkwwvbtqnod8q" path="res://assets/characters/main/pj_dispara_pero_muere/0048.png" id="169_b7qwo"]
 [ext_resource type="Texture2D" uid="uid://7l5l1eexu7l5" path="res://assets/characters/enemigo2/sentado_dispara/0128.png" id="170_hw3ro"]
+[ext_resource type="Texture2D" uid="uid://gh8r7ip73h6x" path="res://assets/characters/main/pj_dispara_pero_muere/0049.png" id="170_k0kg3"]
 [ext_resource type="Texture2D" uid="uid://c0xhh24rfsvoq" path="res://assets/characters/enemigo2/sentado_dispara/0129.png" id="171_ul1rq"]
+[ext_resource type="Texture2D" uid="uid://bcowtrih7aj0s" path="res://assets/characters/main/pj_dispara_pero_muere/0050.png" id="171_vj21w"]
 [ext_resource type="Texture2D" uid="uid://csj06mvda3jts" path="res://assets/characters/enemigo2/sentado_dispara/0130.png" id="172_bqa7p"]
+[ext_resource type="Texture2D" uid="uid://b88rtyqp45rtm" path="res://assets/characters/main/pj_dispara_pero_muere/0051.png" id="172_e8tkc"]
 [ext_resource type="Texture2D" uid="uid://dcjwbd645s8pa" path="res://assets/characters/enemigo2/sentado_dispara/0131.png" id="173_km45e"]
+[ext_resource type="Texture2D" uid="uid://cuq3mf37m7v7m" path="res://assets/characters/main/pj_dispara_pero_muere/0052.png" id="173_w322d"]
+[ext_resource type="Texture2D" uid="uid://btmbhm331cug8" path="res://assets/characters/main/pj_dispara_pero_muere/0053.png" id="174_64id6"]
 [ext_resource type="Texture2D" uid="uid://bpx833dxnmk8e" path="res://assets/characters/enemigo2/sentado_dispara/0132.png" id="174_ce2go"]
 [ext_resource type="Texture2D" uid="uid://x0yjirnc2k7p" path="res://assets/characters/enemigo2/sentado_dispara/0133.png" id="175_efwvm"]
+[ext_resource type="Texture2D" uid="uid://dlmdwllx5ipw4" path="res://assets/characters/main/pj_dispara_pero_muere/0054.png" id="175_uqcdd"]
 [ext_resource type="Texture2D" uid="uid://d027vjggexwxd" path="res://assets/characters/enemigo2/sentado_dispara/0134.png" id="176_b3hfa"]
+[ext_resource type="Texture2D" uid="uid://bgbhvwohp1u7t" path="res://assets/characters/main/pj_dispara_pero_muere/0055.png" id="176_yjogi"]
+[ext_resource type="Texture2D" uid="uid://bll42w6vcri4" path="res://assets/characters/main/pj_dispara_pero_muere/0056.png" id="177_4duwv"]
 [ext_resource type="Texture2D" uid="uid://kyupaysfn8qr" path="res://assets/characters/enemigo2/sentado_dispara/0135.png" id="177_gesu8"]
 [ext_resource type="Texture2D" uid="uid://b15vw2q3jbo1e" path="res://assets/characters/enemigo2/sentado_dispara/0136.png" id="178_pmofm"]
+[ext_resource type="Texture2D" uid="uid://bfqoku637rgfm" path="res://assets/characters/main/pj_dispara_pero_muere/0057.png" id="178_xuv6l"]
 [ext_resource type="Texture2D" uid="uid://oxybtrnx5uf6" path="res://assets/characters/enemigo2/sentado_dispara/0137.png" id="179_tq1u5"]
+[ext_resource type="Texture2D" uid="uid://d0qtefk5jxmge" path="res://assets/characters/main/pj_dispara_pero_muere/0058.png" id="179_u576c"]
+[ext_resource type="Texture2D" uid="uid://dwhssjbgqi02w" path="res://assets/characters/main/pj_dispara_pero_muere/0059.png" id="180_8qbyu"]
 [ext_resource type="Texture2D" uid="uid://durqe4h24w265" path="res://assets/characters/enemigo2/sentado_dispara/0138.png" id="180_typ4v"]
 [ext_resource type="Texture2D" uid="uid://bx6jogxwwmku" path="res://assets/characters/enemigo2/sentado_dispara/0139.png" id="181_d1ycq"]
+[ext_resource type="Texture2D" uid="uid://dcigk7owyjn1e" path="res://assets/characters/main/pj_dispara_pero_muere/0060.png" id="181_ukgnf"]
+[ext_resource type="Texture2D" uid="uid://nuhn6jxwlo4v" path="res://assets/characters/main/pj_dispara_pero_muere/0061.png" id="182_aad80"]
 [ext_resource type="Texture2D" uid="uid://b6qflhiabl67e" path="res://assets/characters/enemigo2/sentado_dispara/0140.png" id="182_e4oaq"]
 [ext_resource type="Texture2D" uid="uid://cc81ry6qb8q3d" path="res://assets/characters/enemigo2/sentado_dispara/0141.png" id="183_w6skb"]
+[ext_resource type="Texture2D" uid="uid://b8dq1so4qiw5r" path="res://assets/characters/main/pj_dispara_pero_muere/0062.png" id="183_xunsj"]
 [ext_resource type="Texture2D" uid="uid://bo34vxn1mikqn" path="res://assets/characters/enemigo2/sentado_dispara/0142.png" id="184_2tgae"]
+[ext_resource type="Texture2D" uid="uid://xye3ryjxxmk" path="res://assets/characters/main/pj_dispara_pero_muere/0063.png" id="184_o8xda"]
+[ext_resource type="Texture2D" uid="uid://cyg5dynnabq22" path="res://assets/characters/main/pj_dispara_pero_muere/0064.png" id="185_ct7qk"]
 [ext_resource type="Texture2D" uid="uid://b5ggeag6f5dbq" path="res://assets/characters/enemigo2/sentado_dispara/0143.png" id="185_mvncb"]
+[ext_resource type="Texture2D" uid="uid://cyome4xaocnpx" path="res://assets/characters/main/pj_dispara_pero_muere/0065.png" id="186_n1fld"]
 [ext_resource type="Texture2D" uid="uid://bjo82m7cfnw3s" path="res://assets/characters/enemigo2/sentado_dispara/0144.png" id="186_savj2"]
+[ext_resource type="Texture2D" uid="uid://6sljuos5jdji" path="res://assets/characters/main/pj_dispara_pero_muere/0066.png" id="187_5hc6f"]
 [ext_resource type="Texture2D" uid="uid://d2b8h1akte7a1" path="res://assets/characters/enemigo2/sentado_dispara/0145.png" id="187_va0xc"]
+[ext_resource type="Texture2D" uid="uid://bol800d5h133w" path="res://assets/characters/main/pj_dispara_pero_muere/0067.png" id="188_3xoa1"]
 [ext_resource type="Texture2D" uid="uid://chgxchsd5qqas" path="res://assets/characters/enemigo2/sentado_dispara/0146.png" id="188_unp4c"]
+[ext_resource type="Texture2D" uid="uid://dsbnw4s3dpmap" path="res://assets/characters/main/pj_dispara_pero_muere/0068.png" id="189_2mbdi"]
 [ext_resource type="Texture2D" uid="uid://f8msmko5hxek" path="res://assets/characters/enemigo2/sentado_dispara/0147.png" id="189_6gfh8"]
 [ext_resource type="Texture2D" uid="uid://hpc3ah4pgrni" path="res://assets/characters/enemigo2/sentado_dispara/0148.png" id="190_fr6eb"]
+[ext_resource type="Texture2D" uid="uid://b5d6057ioofk8" path="res://assets/characters/main/pj_dispara_pero_muere/0069.png" id="190_kei4w"]
 [ext_resource type="Texture2D" uid="uid://ocupr6r6h8qd" path="res://assets/characters/enemigo2/sentado_dispara/0149.png" id="191_7w5wq"]
+[ext_resource type="Texture2D" uid="uid://v7jnjc66dvc" path="res://assets/characters/main/pj_dispara_pero_muere/0070.png" id="191_i1717"]
 [ext_resource type="Texture2D" uid="uid://cngdj03pcj5fx" path="res://assets/characters/enemigo2/sentado_dispara/0150.png" id="192_g7gyb"]
+[ext_resource type="Texture2D" uid="uid://hypuwca6e105" path="res://assets/characters/main/pj_dispara_pero_muere/0071.png" id="192_mxaa2"]
 [ext_resource type="Texture2D" uid="uid://cqgkjd7caaldh" path="res://assets/characters/enemigo2/sentado_dispara/0151.png" id="193_jc1sh"]
+[ext_resource type="Texture2D" uid="uid://dqpi7jmq765hl" path="res://assets/characters/main/pj_dispara_pero_muere/0072.png" id="193_wmny2"]
+[ext_resource type="Texture2D" uid="uid://bf3g31rpqyhg5" path="res://assets/characters/main/pj_dispara_pero_muere/0073.png" id="194_jfumc"]
 [ext_resource type="Texture2D" uid="uid://cdjvdowftebs6" path="res://assets/characters/enemigo2/sentado_dispara/0152.png" id="194_q3vhs"]
 [ext_resource type="Texture2D" uid="uid://bfraro28rk3f5" path="res://assets/characters/enemigo2/sentado_dispara/0153.png" id="195_nxt35"]
+[ext_resource type="Texture2D" uid="uid://djsjmbjo1205s" path="res://assets/characters/main/pj_dispara_pero_muere/0074.png" id="195_se06m"]
 [ext_resource type="Texture2D" uid="uid://q34ebs56fdop" path="res://assets/characters/enemigo2/sentado_dispara/0154.png" id="196_b6t67"]
+[ext_resource type="Texture2D" uid="uid://dnv2s1311npwv" path="res://assets/characters/main/pj_dispara_pero_muere/0075.png" id="196_ydico"]
 [ext_resource type="Texture2D" uid="uid://bdkkpfpf1n3ee" path="res://assets/characters/enemigo2/sentado_dispara/0155.png" id="197_fwxgp"]
+[ext_resource type="Texture2D" uid="uid://cdlhlo7vthk7w" path="res://assets/characters/main/pj_dispara_pero_muere/0076.png" id="197_vmwin"]
 [ext_resource type="Texture2D" uid="uid://bwc3yckkyj6v8" path="res://assets/characters/enemigo2/sentado_dispara/0156.png" id="198_8t2ev"]
+[ext_resource type="Texture2D" uid="uid://cr8klkpy1lbw1" path="res://assets/characters/main/pj_dispara_pero_muere/0077.png" id="198_c70sk"]
+[ext_resource type="Texture2D" uid="uid://bwbwqbs3j8lnc" path="res://assets/characters/main/pj_dispara_pero_muere/0078.png" id="199_6ifrg"]
 [ext_resource type="Texture2D" uid="uid://c8lxogwmtq6wh" path="res://assets/characters/enemigo2/sentado_dispara/0157.png" id="199_mnlj4"]
 [ext_resource type="Texture2D" uid="uid://dune8wyfy5ida" path="res://assets/characters/enemigo2/sentado_dispara/0158.png" id="200_ehsem"]
+[ext_resource type="Texture2D" uid="uid://dlkfncv2lgiyl" path="res://assets/characters/main/pj_dispara_pero_muere/0079.png" id="200_ixtwx"]
+[ext_resource type="Texture2D" uid="uid://cixjyrmx2arqq" path="res://assets/characters/main/pj_dispara_pero_muere/0080.png" id="201_h3pqf"]
 [ext_resource type="Texture2D" uid="uid://cu04p62fwpb5s" path="res://assets/characters/enemigo2/sentado_dispara/0159.png" id="201_nt45x"]
 [ext_resource type="Texture2D" uid="uid://purh2lfwfnc1" path="res://assets/characters/enemigo2/sentado_dispara/0160.png" id="202_km6ug"]
+[ext_resource type="Texture2D" uid="uid://1gajo6emf5y4" path="res://assets/characters/main/pj_dispara_pero_muere/0081.png" id="202_mdbpm"]
 [ext_resource type="Texture2D" uid="uid://7l2vse1rru3a" path="res://assets/characters/enemigo2/sentado_dispara/0161.png" id="203_0evag"]
+[ext_resource type="Texture2D" uid="uid://c67h0pyma52fj" path="res://assets/characters/main/pj_dispara_pero_muere/0082.png" id="203_a167d"]
 [ext_resource type="Texture2D" uid="uid://btk6f1quxj0pk" path="res://assets/characters/enemigo2/sentado_dispara/0162.png" id="204_me2co"]
+[ext_resource type="Texture2D" uid="uid://ylhfoyxrpdla" path="res://assets/characters/main/pj_dispara_pero_muere/0083.png" id="204_vc4dj"]
 [ext_resource type="Texture2D" uid="uid://bqyga1ox05y0u" path="res://assets/characters/enemigo2/sentado_dispara/0163.png" id="205_2k61w"]
+[ext_resource type="Texture2D" uid="uid://1h7aqaw5i0xo" path="res://assets/characters/main/pj_dispara_pero_muere/0084.png" id="205_r3c6q"]
 [ext_resource type="Texture2D" uid="uid://dk1syyfb1aeu7" path="res://assets/characters/enemigo2/sentado_dispara/0164.png" id="206_m8j4h"]
+[ext_resource type="Texture2D" uid="uid://dy0mdf6k8552p" path="res://assets/characters/main/pj_dispara_pero_muere/0085.png" id="206_qlub5"]
+[ext_resource type="Texture2D" uid="uid://dorg7q5n0nw5j" path="res://assets/characters/main/pj_dispara_pero_muere/0086.png" id="207_lkccw"]
 [ext_resource type="Texture2D" uid="uid://b8wgfdeuh5kwn" path="res://assets/characters/enemigo2/sentado_dispara/0165.png" id="207_qxhqr"]
 [ext_resource type="Texture2D" uid="uid://cj74xn2gj5gda" path="res://assets/characters/enemigo2/sentado_dispara/0166.png" id="208_06q8i"]
+[ext_resource type="Texture2D" uid="uid://btc1ewrttvjjs" path="res://assets/characters/main/pj_dispara_pero_muere/0087.png" id="208_ds4h4"]
+[ext_resource type="Texture2D" uid="uid://c570ua00nk5ea" path="res://assets/characters/main/pj_dispara_pero_muere/0088.png" id="209_otuwt"]
 [ext_resource type="Texture2D" uid="uid://ddnvsgb71sl1q" path="res://assets/characters/enemigo2/sentado_dispara/0167.png" id="209_pwve8"]
+[ext_resource type="Texture2D" uid="uid://cx8ndxwx1bphq" path="res://assets/characters/main/pj_dispara_pero_muere/0089.png" id="210_kcjt5"]
 [ext_resource type="Texture2D" uid="uid://drmbtwbf4wtgs" path="res://assets/characters/enemigo2/sentado_dispara/0168.png" id="210_tbdvn"]
+[ext_resource type="Texture2D" uid="uid://druki7fvksim2" path="res://assets/characters/main/pj_dispara_pero_muere/0090.png" id="211_32qgy"]
 [ext_resource type="Texture2D" uid="uid://gj7mepe1yan4" path="res://assets/characters/enemigo2/sentado_dispara/0169.png" id="211_gspfv"]
+[ext_resource type="Texture2D" uid="uid://dlqnpw17p2la2" path="res://assets/characters/main/pj_dispara_pero_muere/0091.png" id="212_x6uh0"]
 [ext_resource type="Texture2D" uid="uid://5sos31s7sm54" path="res://assets/characters/enemigo2/sentado_dispara/0170.png" id="212_xmp0s"]
 [ext_resource type="Texture2D" uid="uid://chlaqlmjeheh6" path="res://assets/characters/enemigo2/sentado_dispara/0171.png" id="213_d8hwb"]
+[ext_resource type="Texture2D" uid="uid://dlek10mxlsmwc" path="res://assets/characters/main/pj_dispara_pero_muere/0092.png" id="213_iejwi"]
 [ext_resource type="Texture2D" uid="uid://d0ec7mha7b41x" path="res://assets/characters/enemigo2/sentado_dispara/0172.png" id="214_k6ghc"]
+[ext_resource type="Texture2D" uid="uid://ixrhmu75h8d0" path="res://assets/characters/main/pj_dispara_pero_muere/0093.png" id="214_lhwoe"]
+[ext_resource type="Texture2D" uid="uid://b47lea4wubsaf" path="res://assets/characters/main/pj_dispara_pero_muere/0094.png" id="215_bfjy1"]
 [ext_resource type="Texture2D" uid="uid://brhs0ul08a5w7" path="res://assets/characters/enemigo2/sentado_dispara/0173.png" id="215_r4dw3"]
 [ext_resource type="Texture2D" uid="uid://co24wx8m5ts12" path="res://assets/characters/enemigo2/sentado_dispara/0174.png" id="216_awjbb"]
+[ext_resource type="Texture2D" uid="uid://bkdty6o32nlb8" path="res://assets/characters/main/pj_dispara_pero_muere/0095.png" id="216_u6pnp"]
 [ext_resource type="Texture2D" uid="uid://cpjlkck01hrse" path="res://assets/characters/enemigo2/sentado_dispara/0175.png" id="217_g2wsm"]
+[ext_resource type="Texture2D" uid="uid://cruv1brbwn7ob" path="res://assets/characters/main/pj_dispara_pero_muere/0096.png" id="217_wpgsq"]
 [ext_resource type="Texture2D" uid="uid://dxpvfrf32n831" path="res://assets/characters/enemigo2/sentado_dispara/0176.png" id="218_i1c5r"]
+[ext_resource type="Texture2D" uid="uid://cds8sr6xsr7qp" path="res://assets/characters/main/pj_dispara_pero_muere/0097.png" id="218_vhj13"]
+[ext_resource type="Texture2D" uid="uid://b6qo2ul24ojny" path="res://assets/characters/main/pj_dispara_pero_muere/0098.png" id="219_51qm8"]
 [ext_resource type="Texture2D" uid="uid://bx8x77rchs2ds" path="res://assets/characters/enemigo2/sentado_dispara/0177.png" id="219_bnwma"]
 [ext_resource type="Texture2D" uid="uid://bg6gfpsldoaoh" path="res://assets/characters/enemigo2/sentado_dispara/0178.png" id="220_lhto7"]
+[ext_resource type="Texture2D" uid="uid://dctwwrrxxi4bx" path="res://assets/characters/main/pj_dispara_pero_muere/0099.png" id="220_p3e58"]
+[ext_resource type="Texture2D" uid="uid://cbom03p1q440h" path="res://assets/characters/main/pj_dispara_pero_muere/0100.png" id="221_f52mp"]
 [ext_resource type="Texture2D" uid="uid://d1wwso4400aua" path="res://assets/characters/enemigo2/sentado_dispara/0179.png" id="221_oappg"]
 [ext_resource type="Texture2D" uid="uid://cs7ni52mo6akc" path="res://assets/characters/enemigo2/sentado_dispara/0180.png" id="222_01yb2"]
+[ext_resource type="Texture2D" uid="uid://b0a0tjjmveg0s" path="res://assets/characters/main/pj_dispara_pero_muere/0101.png" id="222_p2teh"]
 [ext_resource type="Texture2D" uid="uid://dfvxjxp7tw4qw" path="res://assets/characters/enemigo2/sentado_dispara/0181.png" id="223_8iu0u"]
+[ext_resource type="Texture2D" uid="uid://kdtx3caihkl7" path="res://assets/characters/main/pj_dispara_pero_muere/0102.png" id="223_uyqag"]
+[ext_resource type="Texture2D" uid="uid://dvfxcoi5citwh" path="res://assets/characters/main/pj_dispara_pero_muere/0103.png" id="224_fy02s"]
 [ext_resource type="Texture2D" uid="uid://dqh24wgbtftii" path="res://assets/characters/enemigo2/sentado_dispara/0182.png" id="224_i8yos"]
+[ext_resource type="Texture2D" uid="uid://c3jqpye4jso4o" path="res://assets/characters/main/pj_dispara_pero_muere/0104.png" id="225_a5v1o"]
 [ext_resource type="Texture2D" uid="uid://0pl86uid7620" path="res://assets/characters/enemigo2/sentado_dispara/0183.png" id="225_rmhpp"]
+[ext_resource type="Texture2D" uid="uid://bprn57t674sls" path="res://assets/characters/main/pj_dispara_pero_muere/0105.png" id="226_ee7y0"]
 [ext_resource type="Texture2D" uid="uid://c1netr4tyr1m0" path="res://assets/characters/enemigo2/sentado_dispara/0184.png" id="226_pvl2k"]
 [ext_resource type="Texture2D" uid="uid://dmps3kb2hiby" path="res://assets/characters/enemigo2/sentado_dispara/0185.png" id="227_ix3ie"]
+[ext_resource type="Texture2D" uid="uid://ccuq7wth72wu5" path="res://assets/characters/main/pj_dispara_pero_muere/0106.png" id="227_sa2d3"]
 [ext_resource type="Texture2D" uid="uid://cju61msaq6o7i" path="res://assets/characters/enemigo2/sentado_dispara/0186.png" id="228_l6h0g"]
+[ext_resource type="Texture2D" uid="uid://ck4y8ryrrw5am" path="res://assets/characters/main/pj_dispara_pero_muere/0107.png" id="228_ptruy"]
 [ext_resource type="Texture2D" uid="uid://bo21sjebb6srq" path="res://assets/characters/enemigo2/sentado_dispara/0187.png" id="229_2so67"]
+[ext_resource type="Texture2D" uid="uid://tbmrokao2q8q" path="res://assets/characters/main/pj_dispara_pero_muere/0108.png" id="229_4vxiy"]
 [ext_resource type="Texture2D" uid="uid://boghv78ull4y0" path="res://assets/characters/enemigo2/sentado_dispara/0188.png" id="230_r4h21"]
+[ext_resource type="Texture2D" uid="uid://hy8mu5khun16" path="res://assets/characters/main/pj_dispara_pero_muere/0109.png" id="230_u8gs7"]
+[ext_resource type="Texture2D" uid="uid://bvyayyisyblw1" path="res://assets/characters/main/pj_dispara_pero_muere/0110.png" id="231_r0yly"]
 [ext_resource type="Texture2D" uid="uid://b760je0yyusfg" path="res://assets/characters/enemigo2/sentado_dispara/0189.png" id="231_sbc2e"]
 [ext_resource type="Texture2D" uid="uid://cx625syonl8hq" path="res://assets/characters/enemigo2/sentado_dispara/0190.png" id="232_1a8mh"]
+[ext_resource type="Texture2D" uid="uid://ctffcm7lyos32" path="res://assets/characters/main/pj_dispara_pero_muere/0111.png" id="232_akf0j"]
+[ext_resource type="Texture2D" uid="uid://cqoa47ohs2gx1" path="res://assets/characters/main/pj_dispara_pero_muere/0112.png" id="233_4t2yh"]
 [ext_resource type="Texture2D" uid="uid://bpmcbcv1inv5r" path="res://assets/characters/enemigo2/sentado_dispara/0191.png" id="233_vuxog"]
+[ext_resource type="Texture2D" uid="uid://crvsohria0cra" path="res://assets/characters/main/pj_dispara_pero_muere/0113.png" id="234_7xgw5"]
 [ext_resource type="Texture2D" uid="uid://d1ot76gv3elrx" path="res://assets/characters/enemigo2/sentado_dispara/0192.png" id="234_bv1ef"]
+[ext_resource type="Texture2D" uid="uid://c56t7g4txd204" path="res://assets/characters/main/pj_dispara_pero_muere/0114.png" id="235_70j58"]
 [ext_resource type="Texture2D" uid="uid://d1houoixmmfy6" path="res://assets/characters/enemigo2/sentado_dispara/0193.png" id="235_glijy"]
+[ext_resource type="Texture2D" uid="uid://bonwmf7eeh5m0" path="res://assets/characters/main/pj_dispara_pero_muere/0115.png" id="236_ac4t8"]
 [ext_resource type="Texture2D" uid="uid://ba50eskvvjr4m" path="res://assets/characters/enemigo2/sentado_dispara/0194.png" id="236_m53c3"]
 [ext_resource type="Texture2D" uid="uid://bh55p54gkktxb" path="res://assets/characters/enemigo2/sentado_dispara/0195.png" id="237_88cy0"]
+[ext_resource type="Texture2D" uid="uid://d2n0x3tm62otl" path="res://assets/characters/main/pj_dispara_pero_muere/0116.png" id="237_cvgul"]
 [ext_resource type="Texture2D" uid="uid://dwxup1wii87sx" path="res://assets/characters/enemigo2/sentado_dispara/0196.png" id="238_f5k5m"]
+[ext_resource type="Texture2D" uid="uid://bkha1ouq4awhh" path="res://assets/characters/main/pj_dispara_pero_muere/0117.png" id="238_mco2n"]
 [ext_resource type="Texture2D" uid="uid://duhtpbehm88vt" path="res://assets/characters/enemigo2/sentado_dispara/0197.png" id="239_1v2g1"]
+[ext_resource type="Texture2D" uid="uid://krjo0nm3m42t" path="res://assets/characters/main/pj_dispara_pero_muere/0118.png" id="239_nukjn"]
+[ext_resource type="Texture2D" uid="uid://u3qw2o6lxb8q" path="res://assets/characters/main/pj_dispara_pero_muere/0119.png" id="240_xuobi"]
 [ext_resource type="Texture2D" uid="uid://ceef0uipycmwe" path="res://assets/characters/enemigo2/sentado_dispara/0198.png" id="240_yd3q5"]
+[ext_resource type="Texture2D" uid="uid://cx5obdeun0qj" path="res://assets/characters/main/pj_dispara_pero_muere/0120.png" id="241_fln4x"]
 [ext_resource type="Texture2D" uid="uid://di21t65mw265v" path="res://assets/characters/enemigo2/sentado_dispara/0199.png" id="241_jaubd"]
+[ext_resource type="Texture2D" uid="uid://ufu6r2jadwir" path="res://assets/characters/main/pj_dispara_pero_muere/0121.png" id="242_ae887"]
 [ext_resource type="Texture2D" uid="uid://1vcnpdg7ksqi" path="res://assets/characters/enemigo2/sentado_dispara/0200.png" id="242_d2cre"]
 [ext_resource type="Texture2D" uid="uid://bstchfvgmmsjo" path="res://assets/characters/enemigo2/sentado_dispara/0201.png" id="243_i3bqw"]
+[ext_resource type="Texture2D" uid="uid://c42ir1j2qt2vp" path="res://assets/characters/main/pj_dispara_pero_muere/0122.png" id="243_pw7qg"]
+[ext_resource type="Texture2D" uid="uid://dthgu20mjanp2" path="res://assets/characters/main/pj_dispara_pero_muere/0123.png" id="244_prytc"]
 [ext_resource type="Texture2D" uid="uid://dvokbf7fr3qwm" path="res://assets/characters/enemigo2/sentado_dispara/0202.png" id="244_sb46j"]
+[ext_resource type="Texture2D" uid="uid://bitjjxn7ybdom" path="res://assets/characters/main/pj_dispara_pero_muere/0124.png" id="245_gx7rs"]
 [ext_resource type="Texture2D" uid="uid://fbaxfm1fpvb1" path="res://assets/characters/enemigo2/sentado_dispara/0203.png" id="245_ywiy2"]
+[ext_resource type="Texture2D" uid="uid://dmxe16w85t3ji" path="res://assets/characters/main/pj_dispara_pero_muere/0125.png" id="246_c06c7"]
 [ext_resource type="Texture2D" uid="uid://dwvae2t0apift" path="res://assets/characters/enemigo2/sentado_dispara/0204.png" id="246_u6thc"]
+[ext_resource type="Texture2D" uid="uid://dxin46n6qxie4" path="res://assets/characters/main/pj_dispara_pero_muere/0126.png" id="247_04lda"]
 [ext_resource type="Texture2D" uid="uid://cil80n10emfs1" path="res://assets/characters/enemigo2/sentado_dispara/0205.png" id="247_d8637"]
+[ext_resource type="Texture2D" uid="uid://b1bvnqtaaqw2v" path="res://assets/characters/main/pj_dispara_pero_muere/0127.png" id="248_qe101"]
 [ext_resource type="Texture2D" uid="uid://dub3rqwjlimld" path="res://assets/characters/enemigo2/sentado_dispara/0206.png" id="248_yp03a"]
 [ext_resource type="Texture2D" uid="uid://3ro7jg03munc" path="res://assets/characters/enemigo2/sentado_dispara/0207.png" id="249_ubgwu"]
+[ext_resource type="Texture2D" uid="uid://hu2nrajip2a1" path="res://assets/characters/main/pj_dispara_pero_muere/0128.png" id="249_wfeeh"]
+[ext_resource type="Texture2D" uid="uid://dmyrwciivpt5s" path="res://assets/characters/main/pj_dispara_pero_muere/0129.png" id="250_uv1na"]
 [ext_resource type="Texture2D" uid="uid://dompthh6fwiy0" path="res://assets/characters/enemigo2/sentado_dispara/0208.png" id="250_v6sw7"]
 [ext_resource type="Texture2D" uid="uid://dnh2pv2ldn77a" path="res://assets/characters/enemigo2/sentado_dispara/0209.png" id="251_hekmy"]
+[ext_resource type="Texture2D" uid="uid://c7xh0eme0oxfm" path="res://assets/characters/main/pj_dispara_pero_muere/0130.png" id="251_j3uof"]
 [ext_resource type="Texture2D" uid="uid://bimy0bpbygidk" path="res://assets/characters/enemigo2/sentado_dispara/0210.png" id="252_yk12l"]
 [ext_resource type="Texture2D" uid="uid://c204iqh8vvtvm" path="res://assets/characters/enemigo2/sentado_dispara/0211.png" id="253_58shi"]
 [ext_resource type="Texture2D" uid="uid://cypsqngjl46nk" path="res://assets/characters/enemigo2/sentado_dispara/0212.png" id="254_wuybs"]
@@ -1056,6 +1186,401 @@ animations = [{
 }],
 "loop": false,
 "name": &"pj_dispara_duelo",
+"speed": 30.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("122_qw5vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_khfi3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_jqoej")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_lm3t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_sa1x6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_vqbhh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_vsc83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_bypxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_5d4c8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_fp78s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_tyc5j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_t4bkr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_c72g3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_4svhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_lgjsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_4p3xq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_3apse")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_svhy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_6nujq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_weyo8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_fmq6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_tgs6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_xc5pw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_jwedo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_5xnoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_2plgo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_jy8ie")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_7u7qy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_5exfy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_pegfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_scdti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_jnuac")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_i32mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_aeu2f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_tln3l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_ym02t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_ry04i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_pl5ek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_qrf14")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_dbfjh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_xybir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_84kxv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_1ogrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_otsdm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_6m8x5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_6wf3a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_lovb1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_b7qwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_k0kg3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_vj21w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_e8tkc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_w322d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_64id6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_uqcdd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_yjogi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_4duwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_xuv6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_u576c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_8qbyu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_ukgnf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_aad80")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_xunsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_o8xda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_ct7qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_n1fld")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_5hc6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_3xoa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_2mbdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_kei4w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_i1717")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_mxaa2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_wmny2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_jfumc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_se06m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_ydico")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_vmwin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_c70sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_6ifrg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_ixtwx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_h3pqf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_mdbpm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_a167d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_vc4dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_r3c6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_qlub5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_lkccw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_ds4h4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_otuwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_kcjt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_32qgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_x6uh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_iejwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_lhwoe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_bfjy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_u6pnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_wpgsq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_vhj13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_51qm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_p3e58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_f52mp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_p2teh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_uyqag")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_fy02s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_a5v1o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_ee7y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_sa2d3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_ptruy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_4vxiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_u8gs7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_r0yly")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_akf0j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_4t2yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_7xgw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_70j58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_ac4t8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_cvgul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_mco2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_nukjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_xuobi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("241_fln4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("242_ae887")
+}, {
+"duration": 1.0,
+"texture": ExtResource("243_pw7qg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_prytc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_gx7rs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_c06c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_04lda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_qe101")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_wfeeh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_uv1na")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_j3uof")
+}],
+"loop": false,
+"name": &"pj_dispara_pero_muere",
 "speed": 30.0
 }, {
 "frames": [{
@@ -2795,6 +3320,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 bg_taberna_duelo = ExtResource("2_duelo")
+enemy_shoot_qte_delay = 1.5
+enemy_death_delay = 1.2
 qte_time_limit = 1.2
 
 [node name="Background" type="TextureRect" parent="." unique_id=717199177]
@@ -2813,7 +3340,7 @@ z_index = 1
 position = Vector2(475.5, 616.12506)
 scale = Vector2(1.4015626, 1.3991435)
 sprite_frames = SubResource("SpriteFrames_player_placeholder")
-animation = &"pj_dispara_duelo"
+animation = &"pj_dispara_pero_muere"
 
 [node name="EnemyHitbox" type="Area2D" parent="." unique_id=191214592]
 position = Vector2(1400, 600)

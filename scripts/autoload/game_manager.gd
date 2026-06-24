@@ -23,6 +23,7 @@ var intro_cinematic_path: String = "res://scenes/intro_cinematic.tscn"
 
 ## Ordered list of gameplay scene paths.
 var scene_order: Array[String] = [
+	"res://scenes/game_scene_01.tscn",
 	"res://scenes/game_scene_02.tscn",
 	"res://scenes/game_scene_03.tscn",
 ]
@@ -82,8 +83,7 @@ func go_to_main_menu() -> void:
 ## Resets state and starts the game (cinemática intro → primera escena).
 func start_game() -> void:
 	reset_game()
-	# TEMPORAL: Saltar la cinemática introductoria para pruebas rápidas
-	start_first_scene()
+	go_to_scene(intro_cinematic_path)
 
 
 ## Llamada por la cinemática al terminar. Inicia la primera escena de juego.
