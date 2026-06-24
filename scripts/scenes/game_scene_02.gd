@@ -19,12 +19,26 @@ extends Control
 @export var entry_animation_name: String = "entra_taberna"
 
 # ---------- Configuración de Diálogos ----------
-## Diálogo que dirá el jugador al llegar a la barra.
-@export var player_dialogue: String = "Está todo muy vacío acá..."
+## Primer diálogo que dirá el jugador al llegar a la barra.
+@export var player_dialogue_1: String = "Está todo muy vacío acá..."
+## Duración en segundos del primer diálogo del jugador.
+@export var player_dialogue_1_duration: float = 2.5
+
 ## Diálogo que dirá el enemigo sentado.
 @export var enemy_dialogue: String = "Este pueblito es muy chico para los dos..."
-## Tiempo en segundos que durará cada globo de diálogo en pantalla.
-@export var dialogue_duration: float = 2.5
+## Duración en segundos del diálogo del enemigo.
+@export var enemy_dialogue_duration: float = 2.5
+
+## Segundo diálogo que dirá el jugador al volver la cámara a él.
+@export var player_dialogue_2: String = "????"
+## Duración en segundos del segundo diálogo del jugador.
+@export var player_dialogue_2_duration: float = 2.0
+
+## Tercer diálogo que dirá el jugador antes del plano de duelo.
+@export var player_dialogue_3: String = "ok"
+## Duración en segundos del tercer diálogo del jugador.
+@export var player_dialogue_3_duration: float = 1.5
+
 ## Coordenadas de pantalla locales donde aparecerá el globo de diálogo del enemigo.
 @export var enemy_bubble_position: Vector2 = Vector2(1200, 450)
 ## Distancia vertical hacia arriba desde la posición del jugador para el globo de diálogo.
@@ -90,8 +104,9 @@ func _iniciar_secuencia() -> void:
 
 	# D. Diálogo del personaje principal
 	await _mostrar_globo_dialogo(
-		player_dialogue,
-		_obtener_posicion_cabeza_pj()
+		player_dialogue_1,
+		_obtener_posicion_cabeza_pj(),
+		player_dialogue_1_duration
 	)
 
 	# D. Cambio de plano (cambiar fondo al enemigo sentado)
@@ -117,7 +132,34 @@ func _iniciar_secuencia() -> void:
 	# E. Diálogo del enemigo sentado
 	await _mostrar_globo_dialogo(
 		enemy_dialogue,
-		enemy_bubble_position
+		enemy_bubble_position,
+		enemy_dialogue_duration
+	)
+
+	# E2. Cambio de plano de vuelta al personaje principal
+	var cut_out_2 = create_tween()
+	cut_out_2.tween_property(_fade_overlay, "color:a", 1.0, 0.3)
+	await cut_out_2.finished
+
+	# Volver a poner el fondo inicial y hacer visible al jugador
+	if bg_taberna_adentro:
+		background.texture = bg_taberna_adentro
+	player_sprite.visible = true
+
+	var cut_in_2 = create_tween()
+	cut_in_2.tween_property(_fade_overlay, "color:a", 0.0, 0.3)
+	await cut_in_2.finished
+
+	# Diálogos consecutivos del jugador
+	await _mostrar_globo_dialogo(
+		player_dialogue_2,
+		_obtener_posicion_cabeza_pj(),
+		player_dialogue_2_duration
+	)
+	await _mostrar_globo_dialogo(
+		player_dialogue_3,
+		_obtener_posicion_cabeza_pj(),
+		player_dialogue_3_duration
 	)
 
 	# F. Fundido a negro final (fade-out)
@@ -130,8 +172,8 @@ func _iniciar_secuencia() -> void:
 	GameManager.go_to_next_scene()
 
 
-## Muestra un globo de diálogo estilizado en las coordenadas dadas.
-func _mostrar_globo_dialogo(texto: String, posicion: Vector2) -> void:
+## Muestra un globo de diálogo estilizado en las coordenadas dadas con una duración específica.
+func _mostrar_globo_dialogo(texto: String, posicion: Vector2, duracion: float = 2.5) -> void:
 	var bubble = PanelContainer.new()
 	add_child(bubble)
 	
@@ -168,8 +210,8 @@ func _mostrar_globo_dialogo(texto: String, posicion: Vector2) -> void:
 	pop_tween.tween_property(bubble, "position:y", target_y, 0.25).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	pop_tween.tween_property(bubble, "modulate:a", 1.0, 0.2)
 	
-	# Esperar a que se lea
-	await get_tree().create_timer(dialogue_duration).timeout
+	# Esperar a que se lea según la duración especificada
+	await get_tree().create_timer(duracion).timeout
 	
 	# Desvanecer de salida
 	var fade_tween = create_tween().set_parallel(true)

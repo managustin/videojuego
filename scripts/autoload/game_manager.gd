@@ -24,6 +24,7 @@ var intro_cinematic_path: String = "res://scenes/intro_cinematic.tscn"
 ## Ordered list of gameplay scene paths.
 var scene_order: Array[String] = [
 	"res://scenes/game_scene_02.tscn",
+	"res://scenes/game_scene_03.tscn",
 ]
 
 

@@ -482,7 +482,8 @@ grow_vertical = 2
 script = ExtResource("1_scene")
 bg_taberna_adentro = ExtResource("2_tu12q")
 bg_enemigo_sentado = ExtResource("3_y3frk")
-dialogue_duration = 4.5
+player_dialogue_2_duration = 1.0
+player_dialogue_3_duration = 1.0
 
 [node name="Background" type="TextureRect" parent="." unique_id=1891139377]
 layout_mode = 1
@@ -491,6 +492,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_tu12q")
 expand_mode = 1
 stretch_mode = 6
 
