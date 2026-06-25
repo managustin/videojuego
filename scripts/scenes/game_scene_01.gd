@@ -34,6 +34,23 @@ extends Control
 ## Duración en segundos de la transición de fundido a negro (fade-out) al final.
 @export var fade_out_duration: float = 1.0
 
+# ---------- Configuración de Audio y Sincronización ----------
+## Sonido de disparo del jugador.
+@export var player_shoot_sound: AudioStream
+## Sonido de disparo del enemigo.
+@export var enemy_shoot_sound: AudioStream
+
+## [Caso Éxito] Retraso para el sonido del disparo del jugador (segundos).
+@export var success_player_shoot_sound_delay: float = 0.0
+
+## [Caso Fallo por Error] Retraso para el sonido del disparo del jugador (segundos).
+@export var failure_miss_player_shoot_sound_delay: float = 0.0
+## [Caso Fallo por Error] Retraso para el sonido del disparo del enemigo (segundos).
+@export var failure_miss_enemy_shoot_sound_delay: float = 0.0
+
+## [Caso Fallo por Tiempo] Retraso para el sonido del disparo del enemigo (segundos).
+@export var failure_timeout_enemy_shoot_sound_delay: float = 0.0
+
 ## Posición X de destino (se toma automáticamente de la posición en el editor).
 var _walk_target_x: float
 var _camera: Camera2D
@@ -146,6 +163,15 @@ func _input(event: InputEvent) -> void:
 	enemy_sprite.play("enemigo_dispara")
 
 	if _hit_enemy:
+		# --- Caso Éxito (Jugador acierta) ---
+		# Sonido de disparo del jugador
+		if success_player_shoot_sound_delay > 0:
+			get_tree().create_timer(success_player_shoot_sound_delay).timeout.connect(func():
+				AudioManager.play_sfx(player_shoot_sound)
+			)
+		else:
+			AudioManager.play_sfx(player_shoot_sound)
+
 		# Acierto: a los 1.22s el enemigo recibe el impacto y muere.
 		await get_tree().create_timer(1.22).timeout
 		enemy_sprite.play("enemigo_muere")
@@ -153,6 +179,23 @@ func _input(event: InputEvent) -> void:
 		await player_sprite.animation_finished
 		qte_prompt._resolve_success()
 	else:
+		# --- Caso Fallo por Clic Errado (Jugador le erra) ---
+		# Sonido de disparo del jugador
+		if failure_miss_player_shoot_sound_delay > 0:
+			get_tree().create_timer(failure_miss_player_shoot_sound_delay).timeout.connect(func():
+				AudioManager.play_sfx(player_shoot_sound)
+			)
+		else:
+			AudioManager.play_sfx(player_shoot_sound)
+
+		# Sonido de disparo del enemigo
+		if failure_miss_enemy_shoot_sound_delay > 0:
+			get_tree().create_timer(failure_miss_enemy_shoot_sound_delay).timeout.connect(func():
+				AudioManager.play_sfx(enemy_shoot_sound)
+			)
+		else:
+			AudioManager.play_sfx(enemy_shoot_sound)
+
 		# Fallo: esperar tiempo preciso para interrumpir con muerte.
 		await get_tree().create_timer(1.8).timeout
 		# Interrumpir el disparo con la animación de muerte.
@@ -257,6 +300,15 @@ func _on_qte_failure() -> void:
 	# Si no se disparó, significa que el tiempo se agotó pasivamente.
 	if not _shot_fired:
 		enemy_sprite.play("enemigo_dispara")
+		
+		# Sonido de disparo del enemigo (Fallo por Tiempo)
+		if failure_timeout_enemy_shoot_sound_delay > 0:
+			get_tree().create_timer(failure_timeout_enemy_shoot_sound_delay).timeout.connect(func():
+				AudioManager.play_sfx(enemy_shoot_sound)
+			)
+		else:
+			AudioManager.play_sfx(enemy_shoot_sound)
+
 		await get_tree().create_timer(1.8).timeout
 		player_sprite.play("pj_muere1")
 		await player_sprite.animation_finished

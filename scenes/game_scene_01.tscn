@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://dt3yu6kwlybhi"]
 
 [ext_resource type="Script" uid="uid://d27pgbr811aai" path="res://scripts/scenes/game_scene_01.gd" id="1_scene"]
+[ext_resource type="AudioStream" uid="uid://r30qava4awu2" path="res://assets/audio/sfx/disparo1.MP3" id="2_fu6f8"]
 [ext_resource type="Texture2D" uid="uid://mjouu8fp0qtb" path="res://scenes/Gemini_Generated_Image_m9n8ssm9n8ssm9n8.png" id="2_gvh62"]
 [ext_resource type="PackedScene" path="res://scenes/components/qte_prompt.tscn" id="2_qte"]
+[ext_resource type="AudioStream" uid="uid://blb83ujlfwh3t" path="res://assets/audio/sfx/disparo2.MP3" id="3_xrmkf"]
 [ext_resource type="Texture2D" uid="uid://b0xkskljykpjm" path="res://assets/characters/main/pj_stop_walking/0001.png" id="4_bk1dj"]
 [ext_resource type="Texture2D" uid="uid://bootuj1mknkgr" path="res://assets/characters/main/pj_camina_taberna/0001.png" id="4_mjhje"]
 [ext_resource type="Texture2D" uid="uid://cacvi6txnuxck" path="res://assets/characters/main/pj_camina_taberna/0002.png" id="5_lhlpa"]
@@ -2623,6 +2625,12 @@ victory_zoom_level = 1.7
 player_victory_dialogue = "Se acabó el problema. Me voy al bar, ya que estoy. "
 dialogue_display_duration = 3.8
 walk_to_tavern_start = Vector2(630, 715)
+player_shoot_sound = ExtResource("2_fu6f8")
+enemy_shoot_sound = ExtResource("3_xrmkf")
+success_player_shoot_sound_delay = 1.195
+failure_miss_player_shoot_sound_delay = 1.865
+failure_miss_enemy_shoot_sound_delay = 1.19
+failure_timeout_enemy_shoot_sound_delay = 1.865
 
 [node name="GeminiGeneratedImageM9n8Ssm9n8Ssm9n8" type="Sprite2D" parent="." unique_id=906612228]
 position = Vector2(914, 466.99997)
@@ -2666,7 +2674,7 @@ z_index = 2
 position = Vector2(-50, 797)
 scale = Vector2(1.3789061, 1.2050782)
 sprite_frames = SubResource("SpriteFrames_kwtlv")
-animation = &"camina_taberna"
+animation = &"shoot"
 autoplay = "entra_en_escena"
 offset = Vector2(191, 0)
 
