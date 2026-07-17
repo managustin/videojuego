@@ -1,54 +1,60 @@
-# Juego Western con QTE
+# Western QTE Game
 
-Un juego corto en 2D, impulsado por una narrativa, ambientado en el lejano oeste y creado en **Godot 4.6** con GDScript.
+Videojuego narrativo 2D de temática western desarrollado en Godot 4.6 para la materia Introducción al Desarrollo de Videojuegos. El primer nivel combina una introducción ilustrada, dos duelos con QTE, escenas narrativas dentro y fuera de una taberna y un cierre de “Continuará”.
 
-El jugador se enfrenta a peligrosos encuentros en la frontera y debe reaccionar rápidamente mediante **Quick Time Events (QTEs)** (Eventos de Tiempo Rápido) para sobrevivir.
+## Ejecución
 
-## Motor y Versión
+1. Abrir `project.godot` con Godot 4.6.
+2. Presionar F5.
+3. Elegir **Jugar** en el menú principal.
 
-- **Motor:** Godot 4.6
-- **Lenguaje:** GDScript
-- **Renderizador:** Compatibilidad GL (GL Compatibility)
+El proyecto inicia en `scenes/main_menu.tscn`. `scenes/dev_start.tscn` se conserva únicamente como herramienta de desarrollo y no participa del recorrido normal.
 
-## Cómo Ejecutarlo
+## Recorrido actual
 
-1. Abre esta carpeta del proyecto en **Godot 4.6** (o en una versión compatible más reciente).
-2. Presiona **F5** o haz clic en el botón de **Play** (Reproducir).
-3. Aparecerá el menú principal — haz clic en **Jugar** (Play) para comenzar.
+```text
+Menú principal
+→ Cinemática introductoria (11 imágenes)
+→ Escena 01: duelo exterior con QTE de disparo
+→ Escena 02: entrada y diálogos en la taberna
+→ Escena 03: duelo de la taberna con QTE de cobertura y contraataque
+→ Escena 04: cinemática de cierre en tres tomas
+→ Resultado verde: CONTINUARÁ...
+```
 
-## Estado Actual
+El jugador dispone de tres vidas. Los fallos en los QTE restan una vida; al llegar a cero se muestra la pantalla de derrota.
 
-**MVP — En Progreso**
+## Estado
 
-El proyecto está en su fase de expansión de mecánicas y pulido de narrativa. La versión jugable actual incluye:
+El primer nivel está implementado de principio a fin. Incluye:
 
-- Menú principal con fondo animado
-- **Cinemática introductoria:** secuencia de 11 imágenes estáticas de introducción.
-- Una escena de juego con un encuentro QTE (duelo del oeste con detección sincrónica por clic sobre hitbox)
-- Sistema de vidas (3 vidas) con representación visual
-- Pantallas de victoria y derrota con flujo de reintentos
+- menú principal y música de fondo;
+- cinemática introductoria con tiempos configurables;
+- dos encuentros jugables con clic sobre hitboxes;
+- escena narrativa de taberna;
+- disparos sincronizables desde el Inspector;
+- fundidos y cambios de plano;
+- cinemática final con zoom, enemigos y diálogos;
+- pantallas de derrota y de cierre “Continuará”.
 
-## Objetivos del MVP
+La prioridad restante es probar el recorrido completo, ajustar tiempos, posiciones, volúmenes y presentación final.
 
-- [x] Estructura del proyecto y documentación
-- [x] Menú principal con Jugar/Salir (Play/Quit)
-- [x] Autoload GameManager (vidas, flujo de escenas)
-- [x] Componente QTE reutilizable
-- [x] Una escena de juego con QTE
-- [x] Pantalla de resultados (victoria/derrota)
-- [x] Cinemática introductoria con secuencia de imágenes
-- [x] Flujo de juego completo de principio a fin
+## Tecnología
 
-
-## Estructura del Proyecto
-
-Consulta [docs/technical_design.md](docs/technical_design.md) para ver la distribución completa de carpetas y los detalles de arquitectura.
+- Godot 4.6
+- GDScript
+- renderizador GL Compatibility
+- resolución base: 1920 × 1080, ventana de prueba: 1280 × 720
 
 ## Documentación
 
-- [Visión General del Juego](docs/game_overview.md) — premisa, ambientación, tono
-- [Jugabilidad](docs/gameplay.md) — mecánicas, tipos de QTE, ciclo de juego
-- [Diseño Técnico](docs/technical_design.md) — arquitectura, convenciones
-- [Hoja de Ruta](docs/roadmap.md) — fases de desarrollo
-- [Lista de Tareas](docs/task_list.md) — seguimiento del progreso
-- [Flujo de Trabajo con IA](docs/ai_workflow.md) — cómo la IA ayuda en el desarrollo
+- [Contexto maestro](MASTER_CONTEXT.md)
+- [Visión general](docs/game_overview.md)
+- [Jugabilidad](docs/gameplay.md)
+- [Diseño técnico](docs/technical_design.md)
+- [Hoja de ruta](docs/roadmap.md)
+- [Lista de tareas](docs/task_list.md)
+- [Tarea actual](docs/CURRENT_TASK.md)
+- [Flujo de trabajo con IA](docs/ai_workflow.md)
+
+La primera versión descartada de la escena del patio está preservada en `archive/patio_scene_v1/` y no es importada por Godot.

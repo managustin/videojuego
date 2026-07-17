@@ -1,51 +1,48 @@
-# Flujo de Trabajo con IA
+# Flujo de trabajo con IA
 
-## Cómo Debería Funcionar la IA en Este Repositorio
+## Fuentes de verdad
 
-Este proyecto se desarrolla con gran asistencia de IA. El agente de IA debe seguir estas pautas:
+Antes de modificar el proyecto, revisar:
 
-### Principios Generales
+1. `MASTER_CONTEXT.md` para el estado y las restricciones generales.
+2. `docs/CURRENT_TASK.md` para el objetivo inmediato.
+3. La escena y el script reales relacionados con el pedido.
+4. `docs/gameplay.md` y `docs/technical_design.md` si cambia el comportamiento.
 
-1. **Leer MASTER_CONTEXT.md primero** — es la principal fuente de verdad para todas las decisiones.
-2. **Mantener los cambios pequeños y testeables** — evitar grandes reescrituras a lo largo de muchos archivos.
-3. **Preferir la simplicidad** — la solución más simple que funcione es la mejor solución.
-4. **Mantenerse amigable para principiantes** — los desarrolladores son estudiantes aprendiendo desarrollo de juegos.
+La implementación real prevalece sobre una descripción histórica desactualizada; cuando difieran, corregir la documentación en el mismo cambio.
 
-### Antes de Hacer Cambios
+## Forma de colaboración
 
-1. Revisar `docs/CURRENT_TASK.md` para ver en qué trabajar.
-2. Revisar `docs/task_list.md` para entender el progreso actual.
-3. Revisar código existente relacionado antes de modificar o crear nuevos archivos.
+El flujo habitual es:
 
-### Cuando se Implementan Funciones
+1. La IA prepara nodos, scripts, variables exportadas y conexiones.
+2. El usuario carga texturas, fondos, `SpriteFrames` y ajusta posiciones desde el Inspector.
+3. El código coordina la secuencia sin volver a cargar ni sustituir esos recursos mediante rutas rígidas.
 
-1. Actualizar o crear la documentación relevante primero.
-2. Implementar la versión mínima útil de la función.
-3. Probar que el cambio no rompe la funcionalidad existente.
-4. Actualizar `docs/task_list.md` para reflejar el progreso.
+Si el usuario ya modificó una escena en Godot, se deben preservar sus posiciones, escalas, animaciones, textos y recursos. No regenerar archivos `.tscn` completos cuando alcance con un cambio localizado.
 
-### Reglas de Calidad del Código
+## Reglas
 
-- Escribir GDScript legible con nombres de variables claros
-- Añadir un comentario en la parte superior de cada archivo explicando su propósito
-- Usar `@export` para valores que deban ser configurables en el editor de Godot
-- Usar señales para comunicación entre nodos
-- Mantener una responsabilidad por script
-- Usar solo sintaxis de Godot 4 (variables tipadas, `@onready`, `.emit()`)
+- Usar Godot 4 y GDScript legible.
+- Exponer en el Inspector los tiempos que necesiten ajuste visual o sonoro.
+- Nombrar las variables según su orden y función narrativa, preferentemente en español.
+- Mantener los cambios pequeños y verificables.
+- No alterar los diálogos de la escena 02: están escritos así de forma intencional.
+- En la escena 03, el acierto del segundo QTE debe producir un solo disparo del personaje.
+- Conservar `project.godot` iniciando en `main_menu.tscn` para probar el juego completo.
+- Mantener el patio anterior bajo `archive/patio_scene_v1/` y fuera de la importación de Godot.
 
-### Lo Que Hay Que Evitar
+## Documentación que debe acompañar cambios
 
-- Complicar en exceso (over-engineering) o añadir abstracciones innecesarias
-- Grandes scripts monolíticos
-- Cambios en archivos no relacionados dentro de la misma tarea
-- Introducir plugins o dependencias externas
-- Jerarquías de herencia complejas
-- Funciones no solicitadas en la tarea actual
+- Mecánica o narrativa: `docs/gameplay.md` y `docs/game_overview.md`.
+- Arquitectura, nodos o flujo: `docs/technical_design.md`.
+- Estado del trabajo: `docs/CURRENT_TASK.md` y `docs/task_list.md`.
+- Hitos: `docs/roadmap.md`.
 
-### Actualizaciones de Documentación
+## Verificación mínima
 
-Mantener la documentación sincronizada con la implementación. Cuando se añade una función:
-- Actualizar `docs/task_list.md`
-- Actualizar `docs/technical_design.md` si la arquitectura cambia
-- Actualizar `docs/gameplay.md` si las mecánicas cambian
-- Actualizar `docs/roadmap.md` si se completan hitos
+- Confirmar que las rutas de nodos del script existan en el `.tscn`.
+- Confirmar que los recursos asignados por el usuario sigan referenciados.
+- Probar la rama modificada y, si afecta el flujo, ejecutar desde F5.
+- Revisar errores y advertencias del depurador.
+- No afirmar que una prueba pasó si Godot no pudo ejecutarse.

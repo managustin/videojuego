@@ -4,6 +4,7 @@
 
 extends Control
 
+@onready var continue_label: Label = $VBoxContainer/ContinueLabel
 @onready var result_label: Label = $VBoxContainer/ResultLabel
 @onready var message_label: Label = $VBoxContainer/MessageLabel
 @onready var retry_button: Button = $VBoxContainer/RetryButton
@@ -20,11 +21,15 @@ func _ready() -> void:
 ## Configures the screen based on the game outcome.
 func _display_result() -> void:
 	if GameManager.game_result == "victory":
+		continue_label.visible = true
+		continue_label.text = "CONTINUARÁ..."
 		result_label.text = "¡Bien!"
 		message_label.text = "Sobreviviste... por ahora."
+		continue_label.add_theme_color_override("font_color", Color(0.35, 1.0, 0.35))
 		result_label.add_theme_color_override("font_color", Color(0.2, 0.8, 0.2))
 		background.color = Color(0.05, 0.15, 0.05)
 	else:
+		continue_label.visible = false
 		result_label.text = "Moriste."
 		message_label.text = "La quedaste..."
 		result_label.add_theme_color_override("font_color", Color(0.8, 0.2, 0.2))

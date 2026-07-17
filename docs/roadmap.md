@@ -1,57 +1,40 @@
-# Hoja de Ruta
+# Hoja de ruta
 
-## Fase 1: Base (MVP) ✅
+## 1. Base jugable — completada
 
-Objetivo: Crear una versión mínima jugable con un flujo completo.
+- [x] Menú principal y pantalla de resultados.
+- [x] `GameManager` con tres vidas y progresión de escenas.
+- [x] `AudioManager` con música y pool de SFX.
+- [x] Componente QTE reutilizable.
+- [x] Flujo completo iniciado con F5.
 
-- [x] Estructura del proyecto y de carpetas
-- [x] Documentación (README, visión general del juego, jugabilidad, diseño técnico, hoja de ruta, flujo con IA)
-- [x] Escena del menú principal
-- [x] Autoload GameManager (vidas, flujo de escenas, resultado de partidas)
-- [x] Componente QTE reutilizable
-- [x] Primera escena de juego con un encuentro QTE
-- [x] Pantalla de resultados (victoria y derrota)
-- [x] Flujo de juego completo de principio a fin: Menú → Escena → QTE → Resultado → Menú
+## 2. Primer nivel — completado
 
-## Fase 2: Arte, Mecánica de Duelo y Narrativa ← Actual
+- [x] Cinemática introductoria de 11 imágenes.
+- [x] Escena 01: duelo exterior con acierto, clic errado y tiempo agotado.
+- [x] Escena 02: entrada, cambios de plano y diálogos de la taberna.
+- [x] Escena 03: QTE de cobertura y QTE de contraataque.
+- [x] Escena 04: cinemática final en tres tomas.
+- [x] Resultado verde con `CONTINUARÁ...`.
+- [x] Patio anterior retirado y preservado en `archive/patio_scene_v1/`.
 
-Objetivo: Reemplazar placeholders con sprites reales, implementar mecánica de duelo completa y añadir cinemática introductoria.
+## 3. Sonido y presentación — implementado, pendiente de ajuste
 
-- [x] Fondo visual añadido a la Escena 01
-- [x] Sprites del personaje principal con animaciones (caminata, disparo, muerte)
-- [x] Sprite del enemigo con animación de disparo
-- [x] Mecánica de QTE cambiada de presionar tecla a clic sobre hitbox (Area2D)
-- [x] Lógica de 3 caminos: acierto, fallo por clic erróneo, fallo por tiempo agotado
-- [x] Sistema de reintentos con reseteo de animaciones
-- [x] Traducción completa de la interfaz al español
-- [x] Animación de muerte del enemigo cuando el jugador acierta (`enemigo_muere`)
-- [x] Cinemática introductoria: carpeta de assets y 11 imágenes estáticas
-- [x] Cinemática introductoria: escena `.tscn` creada
-- [x] Cinemática introductoria: script `intro_cinematic.gd` con soporte de fade-in/out, zoom y duraciones configurables
-- [x] Cinemática introductoria: `GameManager` actualizado para dirigir al intro antes de la Escena 01
-- [x] Cinemática introductoria: documentación conceptual y técnica actualizada
+- [x] Música de fondo automática.
+- [x] Disparos del primer QTE sincronizables desde el Inspector.
+- [x] Disparos del duelo de la taberna reutilizando los mismos audios.
+- [x] Fundidos, zoom y cambios de plano.
+- [ ] Ajustar en juego el frame exacto de cada disparo.
+- [ ] Revisar volúmenes relativos de música y SFX.
+- [ ] Ajustar posiciones, tamaños de globos y tiempos narrativos.
 
+## 4. Cierre de entrega — actual
 
-## Fase 3: Expansión
+- [ ] Probar el recorrido completo desde F5 varias veces.
+- [ ] Probar todas las ramas de fallo y reintento de las escenas 01 y 03.
+- [ ] Confirmar que el acierto de la fase 2 de la escena 03 reproduce un solo disparo.
+- [ ] Revisar advertencias y errores del depurador de Godot.
+- [ ] Validar el proyecto en la resolución de entrega.
+- [ ] Preparar build o material de presentación requerido por la cátedra.
 
-Objetivo: Añadir más contenido, variedad y un minijuego.
-
-- [ ] Añadir una segunda escena de juego con un QTE diferente
-- [ ] Añadir una segunda variación de QTE (ej. machacar teclas o secuencia)
-- [ ] Añadir un minijuego simple (ej. juego de reacción de duelo del oeste)
-- [ ] Mejorar la retroalimentación visual y de la interfaz (animaciones, señales de sonido)
-- [ ] Añadir transiciones entre escenas (fundido de entrada/salida)
-- [ ] Añadir más texto narrativo y variedad de escenas
-- [ ] Expandir `scene_order` en GameManager
-
-## Fase 4: Pulido
-
-Objetivo: Mejorar la sensación del juego, la presentación y los detalles finales.
-
-- [ ] Añadir música de fondo
-- [ ] Añadir efectos de sonido (disparo, muerte, clics del menú)
-- [ ] Mejorar la tipografía y el tema visual
-- [ ] Añadir progresión de dificultad (tiempos más cortos en escenas posteriores)
-- [ ] Secuencia final de escenas (5-8 escenas en total)
-- [ ] Pruebas de juego y ajustes de balance
-- [ ] Limpieza final de la documentación
+No se planean nuevos sistemas grandes antes de la entrega. Cualquier expansión posterior debe conservar el alcance pequeño y continuar desde el conflicto planteado por los forajidos.

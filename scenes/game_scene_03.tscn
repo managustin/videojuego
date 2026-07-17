@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bfaimhvmtrp4o" path="res://scripts/scenes/game_scene_03.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://dbnusn4e8bw61" path="res://assets/backgrounds/fondo_duelo.png" id="2_duelo"]
+[ext_resource type="AudioStream" uid="uid://r30qava4awu2" path="res://assets/audio/sfx/disparo1.MP3" id="2_player_shot"]
+[ext_resource type="AudioStream" uid="uid://blb83ujlfwh3t" path="res://assets/audio/sfx/disparo2.MP3" id="3_enemy_shot"]
 [ext_resource type="PackedScene" path="res://scenes/components/qte_prompt.tscn" id="3_qte"]
 [ext_resource type="Texture2D" uid="uid://bs3dpsajj0muf" path="res://assets/characters/main/pj_cubrirse/0001.png" id="3_yfy8i"]
 [ext_resource type="Texture2D" uid="uid://d3rqwooq2q1ri" path="res://assets/characters/main/pj_cubrirse/0002.png" id="4_kkmq1"]
@@ -3320,9 +3322,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 bg_taberna_duelo = ExtResource("2_duelo")
-enemy_shoot_qte_delay = 1.5
-enemy_death_delay = 1.2
-qte_time_limit = 1.2
+enemy_death_delay = 1.0
+sonido_disparo_personaje = ExtResource("2_player_shot")
+sonido_disparo_enemigo = ExtResource("3_enemy_shot")
+demora_disparo_enemigo_sentado = 4.73
 
 [node name="Background" type="TextureRect" parent="." unique_id=717199177]
 layout_mode = 1

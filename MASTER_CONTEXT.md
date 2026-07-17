@@ -1,587 +1,237 @@
 # MASTER_CONTEXT.md
 
-## Project Title
-Western QTE Game
+## Propósito
 
-## Purpose of this File
-This file is the master context for any AI coding agent working on this repository.
+Este archivo es la fuente principal de contexto para cualquier agente que trabaje en el repositorio. Describe el juego que existe actualmente, su flujo, las decisiones técnicas vigentes y las restricciones de colaboración.
 
-The agent must treat this file as the primary source of truth for:
-- product vision
-- project scope
-- technical decisions
-- coding conventions
-- folder structure
-- documentation requirements
-- implementation priorities
+Si existe una diferencia entre este documento y el proyecto, se debe inspeccionar la implementación, resolver la discrepancia y actualizar la documentación. No se debe conservar información histórica como si todavía describiera el juego activo.
 
-If there is ambiguity, the agent should prefer:
-1. simplicity
-2. modularity
-3. small working increments
-4. maintainability
-5. compatibility with Godot 4 and GDScript
+## Proyecto
 
-The agent must not over-engineer the project.
+`Western QTE Game` es un videojuego narrativo 2D realizado por dos estudiantes para Introducción al Desarrollo de Videojuegos. Está hecho en Godot 4.6 con GDScript y GL Compatibility.
 
----
+El alcance activo es un primer nivel completo, breve y lineal. Combina:
 
-# 1. Project Summary
+- una introducción ilustrada;
+- dos duelos con QTE basados en clics;
+- secuencias narrativas con fondos y animaciones pre-renderizadas;
+- tres vidas compartidas;
+- música y disparos;
+- un cierre `CONTINUARÁ...`.
 
-This is a small 2D university project made by two students.
+No es un mundo abierto ni un sistema de combate general. No requiere inventario, IA compleja, físicas avanzadas, guardado elaborado, multijugador ni plugins externos.
 
-The game is a short narrative-driven 2D game with:
-- static scenes
-- quick time events (QTEs)
-- a western setting
-- a few simple minigames between scenes
+## Ejecución y flujo vigente
 
-The overall vibe is:
-- tense
-- a little gritty
-- western-themed
-- simple in presentation
-- feasible for a small student team
+`project.godot` debe iniciar en:
 
-This is **not** a large commercial game.
-This is **not** an open world game.
-This is **not** a physics-heavy action game.
-This is **not** a complex animation-based game.
+```text
+res://scenes/main_menu.tscn
+```
 
-The project must remain small and realistic.
+El recorrido de F5 es:
 
----
+```text
+Menú principal
+→ intro_cinematic
+→ game_scene_01
+→ game_scene_02
+→ game_scene_03
+→ game_scene_04
+→ result_screen verde
+```
 
-# 2. Core Design Philosophy
+`scenes/dev_start.tscn` abre directamente la escena 03 para desarrollo, pero no debe configurarse como escena principal durante la validación o entrega.
 
-The game should be designed around:
-- static or mostly static scenes
-- simple interactions
-- strong feedback
-- short game duration
-- low technical complexity
-- easy iteration
-- high feasibility for beginners using AI assistance
+## Narrativa actual
 
-The project should prioritize:
-- getting a playable version quickly
-- building a "vertical slice" first
-- then expanding with more scenes and polish
+La introducción presenta un pueblo fronterizo hostil. En la escena 01, el protagonista sobrevive a un duelo exterior y entra en una taberna. La escena 02 desarrolla su entrada y un intercambio con un enemigo sentado. La escena 03 convierte ese conflicto en un duelo de cobertura y contraataque.
 
-The first goal is not to finish the full game immediately.
-The first goal is to create a minimal playable version with:
-- one menu
-- one playable scene
-- one QTE
-- simple health/lives tracking
-- success/failure result
+Después de ganar, la escena 04 muestra al protagonista mirando hacia afuera:
 
----
+1. dice “Qué quilombo...”;
+2. una voz grita “¡HEY!” y la cámara hace zoom hacia la ventana;
+3. un enemigo acompañado por otros dos dice “¡Salí de ahí! ¡Te metiste con el patrón!”;
+4. el protagonista responde “¡No me dejaban dormir!”;
+5. agrega “... ahora tengo que ver cómo soluciono esto.”;
+6. la imagen funde a negro y aparece `CONTINUARÁ...`.
 
-# 3. Game Concept
+Los diálogos de `game_scene_02` son intencionales. No deben ser reescritos ni “corregidos” sin un pedido explícito.
 
-## Setting
-A western-inspired environment.
+## Escenas
 
-## Premise
-The protagonist lives near dangerous criminal neighbors or hostile outlaws and gets involved in violent confrontations. The game progresses through a sequence of static scenes where enemies or hazards attack, forcing the player to react quickly through QTEs.
+### `main_menu.tscn`
 
-There may be small narrative transitions between scenes.
+Pantalla inicial con fondo animado y botones Jugar/Salir. Jugar llama a `GameManager.start_game()`.
 
-## Structure
-The player advances scene by scene.
-Each scene presents:
-- a background
-- one or more threats
-- one or more QTE moments
-- a win/fail outcome
+### `intro_cinematic.tscn`
 
-Between some scenes there may be minigames.
+Reproduce 11 imágenes (`0.png` a `10.png`) desde `assets/cinematics/intro/`. Las duraciones son independientes. La primera imagen usa fade-in y zoom; la última usa fade-out.
 
----
+### `game_scene_01.tscn`
 
-# 4. Scope Constraints
+Primer QTE jugable. El protagonista entra caminando y debe disparar haciendo clic sobre la hitbox del enemigo.
 
-This project must stay small.
+- Acierto: dispara el protagonista, muere el enemigo y se avanza.
+- Clic errado: disparan ambos, muere el protagonista y pierde una vida.
+- Timeout: dispara el enemigo, muere el protagonista y pierde una vida.
 
-Preferred target scope:
-- 5 to 8 total scenes
-- 2 simple minigames maximum
-- 10 to 15 minutes total playtime
-- a small number of reusable mechanics
+La detección usa `PhysicsPointQueryParameters2D`. Los sonidos del protagonista y enemigo y sus demoras se exponen en el Inspector.
 
-The agent must avoid proposing:
-- large combat systems
-- free movement exploration
-- inventory systems unless explicitly requested
-- complex enemy AI
-- procedural generation
-- dialogue trees with massive branching
-- online systems
-- advanced save systems unless explicitly needed
-- unnecessary plugins or dependencies
+### `game_scene_02.tscn`
 
-Keep the architecture simple.
+Secuencia narrativa dentro de la taberna. Alterna dos fondos mediante fundidos cortos, reproduce `entra_taberna` y muestra diálogos configurables. No contiene QTE.
 
----
+### `game_scene_03.tscn`
 
-# 5. MVP Definition
+Duelo de la taberna en dos fases.
 
-The MVP is the minimum playable version.
+Fase 1:
 
-## MVP must include
-- main menu
-- one gameplay scene
-- one QTE mechanic
-- health or lives system
-- transition to victory or defeat
-- simple UI feedback
-- basic project documentation
+- el enemigo sentado reproduce `enemigo2_sentado_dispara`;
+- el jugador debe hacer clic en `CoverHitbox`;
+- el acierto reproduce `pj_cubrirse`;
+- el fallo reproduce `pj_muere2`.
 
-## MVP should not depend on
-- final art
-- final sound
-- multiple minigames
-- polished transitions
-- advanced effects
+Fase 2:
 
-Use placeholder assets if necessary.
+- el jugador debe hacer clic sobre `EnemyHitbox`;
+- el acierto reproduce `pj_dispara_duelo` y debe generar un solo disparo del personaje;
+- luego el enemigo reproduce `enemigo_muere`;
+- el fallo reproduce `pj_dispara_pero_muere` y `enemigo_parado_dispara`, con demoras sonoras separadas.
 
----
+Los controles de `Audio de disparos` están ordenados por fase y resultado. No debe programarse un sonido enemigo durante la rama exitosa de la fase 2.
 
-# 6. Gameplay Design
+### `game_scene_04.tscn`
 
-## Core Loop
-1. Show static scene
-2. Present enemy, threat, or dangerous event
-3. Trigger a QTE
-4. If player succeeds, continue
-5. If player fails, lose life or take damage
-6. Continue to next event or scene
-7. Repeat until victory or defeat
+Cinemática final compuesta dentro de una única escena:
 
-## Possible QTE Types
-These are preferred because they are simple and appropriate:
-- press a specific key in time
-- press one of multiple keys shown on screen
-- short key sequence
-- mash a key repeatedly
-- hold a key for a short duration
-- reaction timing after a signal
+- toma 1: `Background`, `PlayerSprite`, diálogo y zoom a la ventana;
+- toma 2: `EnemyBackground`, `EnemySprite` animado, dos `Sprite2D` estáticos y globo enemigo;
+- toma 3: `ThirdBackground` pre-renderizado y dos textos del protagonista;
+- salida: `FadeOverlay` y `GameManager.go_to_result()`.
 
-The first implementation should use the simplest possible QTE:
-- show a prompt
-- start a timer
-- wait for correct key
-- success if correct input arrives before timeout
-- failure otherwise
+No existe un sprite separado del protagonista en la tercera toma porque ya está renderizado en el fondo.
 
-## Minigame Ideas
-Keep minigames simple.
-Examples:
-- western duel reaction game
-- short memory sequence
-- lockpick-like simplified timing game
-- shooting target popup event
+### `result_screen.tscn`
 
-Only implement minigames after the MVP works.
+En victoria usa un fondo verde y muestra, en este orden:
 
----
+1. `CONTINUARÁ...` a 72 px;
+2. `¡Bien!`;
+3. `Sobreviviste... por ahora.`;
+4. botones Reintentar y Menú Principal.
 
-# 7. Technical Stack
+En derrota oculta `CONTINUARÁ...`, usa fondo rojo y conserva las opciones de reintento y menú.
 
-## Engine
-Godot 4
+## Sistemas globales
 
-## Language
-GDScript
+### GameManager
 
-## Editor / IDE
-The repository may be edited in:
-- Godot editor
-- VS Code or Antigravity
+Autoload en `scripts/autoload/game_manager.gd`.
 
-The code and project structure must remain fully compatible with Godot 4.
+Responsabilidades:
 
-The agent must not assume Unity, C#, Phaser, or any other stack.
+- tres vidas (`lives`, `max_lives`);
+- índice de escena;
+- resultado `victory` o `defeat`;
+- reinicio de partida;
+- transiciones.
 
----
+Orden obligatorio:
 
-# 8. Development Workflow
+```gdscript
+var scene_order: Array[String] = [
+    "res://scenes/game_scene_01.tscn",
+    "res://scenes/game_scene_02.tscn",
+    "res://scenes/game_scene_03.tscn",
+    "res://scenes/game_scene_04.tscn",
+]
+```
 
-The project is being developed with heavy AI assistance.
+### AudioManager
 
-The agent must work in a way that helps beginners.
+Autoload en `scripts/autoload/audio_manager.gd`. Reproduce `assets/audio/music/bg_music.ogg` y mantiene un pool de ocho reproductores para SFX.
 
-This means:
-- prefer simple implementations
-- explain file purpose clearly
-- keep code modular but not overcomplicated
-- generate readable code
-- avoid clever abstractions unless clearly useful
-- avoid large uncontrolled rewrites
+Los disparos activos reutilizados en las escenas 01 y 03 son:
 
-The preferred workflow is incremental:
-1. define structure
-2. create documentation
-3. build one working feature
-4. test
-5. iterate
-6. expand
+- `assets/audio/sfx/disparo1.MP3`: personaje;
+- `assets/audio/sfx/disparo2.MP3`: enemigos.
 
-The agent should optimize for:
-- ease of understanding
-- easy debugging
-- quick testing inside Godot
+Las demoras se cuentan desde el comienzo de cada animación y no deben bloquearla.
 
----
+### QTEPrompt
 
-# 9. Repository and File Structure
+Componente reutilizable en `scenes/components/qte_prompt.tscn`, con script `scripts/managers/qte_prompt.gd`. Expone texto y tiempo límite; emite éxito o fallo.
 
-The project should use a clean and simple structure like this:
+## Estructura relevante
 
+```text
 project_root/
 ├─ project.godot
 ├─ README.md
 ├─ MASTER_CONTEXT.md
 ├─ docs/
-│  ├─ game_overview.md
-│  ├─ gameplay.md
-│  ├─ technical_design.md
-│  ├─ roadmap.md
-│  ├─ task_list.md
-│  └─ ai_workflow.md
 ├─ scenes/
 │  ├─ main_menu.tscn
+│  ├─ intro_cinematic.tscn
 │  ├─ game_scene_01.tscn
+│  ├─ game_scene_02.tscn
+│  ├─ game_scene_03.tscn
+│  ├─ game_scene_04.tscn
 │  ├─ result_screen.tscn
-│  ├─ components/
-│  └─ minigames/
+│  ├─ dev_start.tscn
+│  └─ components/
 ├─ scripts/
 │  ├─ autoload/
-│  │  └─ game_manager.gd
 │  ├─ managers/
-│  │  └─ qte_manager.gd
-│  ├─ ui/
-│  ├─ scenes/
-│  └─ minigames/
+│  └─ scenes/
 ├─ assets/
+│  ├─ audio/
 │  ├─ backgrounds/
 │  ├─ characters/
-│  ├─ props/
-│  └─ ui/
-├─ audio/
-│  ├─ music/
-│  └─ sfx/
-└─ tests/
+│  └─ cinematics/
+└─ archive/patio_scene_v1/
+```
 
-If some folders are not immediately needed, they may be created later, but the overall structure should remain organized.
+## Escena del patio archivada
 
----
+La versión anterior de `game_scene_04`, ambientada en el patio y con animaciones defectuosas, fue retirada. Está preservada bajo `archive/patio_scene_v1/` con sus rutas internas y un `.gdignore` para impedir su importación.
 
-# 10. Documentation Requirements
+No restaurarla ni mezclar sus recursos con la escena 04 activa salvo pedido explícito.
 
-The agent should generate and maintain documentation.
+## Forma de trabajo con recursos visuales
 
-At minimum, the agent should create:
+La IA prepara nodos, scripts, hitboxes y variables. El usuario coloca fondos, texturas, `SpriteFrames`, posiciones y escalas desde el Inspector.
 
-## README.md
-Should include:
-- project name
-- short description
-- engine and version
-- how to run the project
-- current state of the project
-- MVP goals
+Reglas:
 
-## docs/game_overview.md
-Should describe:
-- premise
-- setting
-- tone
-- target duration
-- project goals
+- no sobrescribir recursos asignados en el Inspector mediante `load()` o rutas rígidas;
+- conservar cambios hechos por el usuario en `.tscn`;
+- agregar nodos vacíos cuando el usuario todavía debe cargar el material;
+- exponer tiempos útiles con nombres claros, ordenados y preferentemente en español;
+- usar textos exportados como fuente de verdad en ejecución y explicar dónde se editan.
 
-## docs/gameplay.md
-Should describe:
-- player loop
-- current mechanics
-- QTE types
-- failure and success conditions
-- minigame ideas
+## Estándares
 
-## docs/technical_design.md
-Should describe:
-- folder structure
-- main scenes
-- global systems
-- autoload usage
-- scene transitions
-- coding conventions
+- Godot 4.6 y GDScript.
+- Nombres de archivos, funciones y variables en `snake_case`.
+- Código sencillo y legible.
+- Comentarios solo para lógica no evidente.
+- Textos visibles en español.
+- Archivos UTF-8.
+- Sin dependencias ni plugins innecesarios.
+- Cambios pequeños que preserven el trabajo del Inspector.
 
-## docs/roadmap.md
-Should describe:
-- MVP stage
-- post-MVP stage
-- polish stage
+## Estado y prioridad
 
-## docs/task_list.md
-Should describe:
-- tasks already done
-- tasks in progress
-- next implementation steps
+El primer nivel está implementado. La prioridad actual no es agregar sistemas nuevos, sino:
 
-## docs/ai_workflow.md
-Should describe:
-- how AI should work in this repo
-- that changes should be small and testable
-- that the code must stay beginner-friendly
+1. probar F5 de principio a fin;
+2. recorrer todas las ramas de QTE;
+3. ajustar sonidos al frame exacto;
+4. revisar tamaños, posiciones y tiempos;
+5. resolver advertencias reales del depurador;
+6. preparar la entrega.
 
-The agent should keep documentation aligned with the implementation.
-
----
-
-# 11. Coding Standards
-
-## General Principles
-The code must be:
-- simple
-- readable
-- modular
-- beginner-friendly
-- easy to debug
-
-## Naming
-Use snake_case for:
-- file names
-- variables
-- functions
-- scene file names
-
-Examples:
-- game_manager.gd
-- main_menu.tscn
-- current_health
-- start_qte()
-
-## Script Responsibilities
-Prefer one clear responsibility per script.
-
-Do not put unrelated systems into one large script if avoidable.
-
-## Comments
-Use comments sparingly but usefully.
-Comments should explain:
-- purpose of a file
-- non-obvious logic
-- assumptions
-
-Avoid excessive comments for obvious code.
-
-## Defensive Coding
-If an implementation depends on a node path or exported variable, make this clear and stable.
-Use Godot 4 syntax only.
-
----
-
-# 12. Architecture Guidance
-
-## Recommended Main Systems
-
-### GameManager
-Use an autoload for shared global state such as:
-- player health or lives
-- current scene progression
-- game reset
-- basic result state
-
-Keep it simple.
-
-### QTE System
-Create a reusable QTE component or manager that can:
-- display prompt text or keys
-- start a timer
-- detect correct input
-- emit success/failure result
-- be reused across scenes
-
-The first version should be minimal and robust.
-
-### Scene Flow
-Scenes should be separate and easy to swap.
-Transitions can initially be basic scene changes.
-
-### UI
-Keep UI minimal:
-- prompt text
-- timer if needed
-- health/lives display
-- result messages
-
-Do not create a highly complex UI architecture unless necessary.
-
----
-
-# 13. Preferred Build Order
-
-The agent should prioritize work in this order:
-
-## Phase 1: Foundation
-- create docs
-- create folder structure
-- create main menu scene
-- create game manager autoload
-- create first gameplay scene
-- create reusable basic QTE system
-- create result screen
-- connect flow end-to-end
-
-## Phase 2: Expansion
-- add more scene content
-- add second QTE variation
-- add one simple minigame
-- improve UI feedback
-- improve transitions
-
-## Phase 3: Polish
-- add sound
-- add placeholder art improvements
-- add final scene progression
-- improve feedback and pacing
-- clean code and docs
-
-The agent must not skip directly to polish before Phase 1 works.
-
----
-
-# 14. Asset Policy
-
-The project may use placeholder assets initially.
-
-Preferred placeholder strategy:
-- plain color backgrounds
-- simple text labels
-- temporary shapes or sprites
-- basic UI boxes
-- simple free or generated placeholder art if allowed
-
-The code should not depend on final art being available.
-
----
-
-# 15. Beginner-Friendly AI Collaboration Rules
-
-This repository is being worked on by people with little or no prior game development experience.
-
-The agent must therefore:
-- prefer clarity over sophistication
-- explain structural decisions in docs
-- avoid hidden complexity
-- avoid giant monolithic scripts
-- avoid fragile code
-- avoid changing many unrelated files at once
-
-When adding a feature, the agent should:
-1. update or create relevant docs
-2. implement the smallest useful version
-3. keep the file layout organized
-4. avoid breaking existing work
-
-If there is uncertainty, choose the simpler implementation.
-
----
-
-# 16. What the Agent Should Do First
-
-When first working on this repo, the agent should:
-
-1. Inspect the repository state.
-2. Create missing base documentation files.
-3. Propose or create the initial folder structure.
-4. Ensure the project is aligned with Godot 4.
-5. Prepare the first implementation target:
-   - main menu
-   - one gameplay scene
-   - one basic QTE
-   - game manager
-   - result flow
-
-If implementation is requested, prioritize a fully playable minimal version rather than broad unfinished scaffolding.
-
----
-
-# 17. Immediate Deliverables Expected from the Agent
-
-Unless the user asks otherwise, the best initial output should include:
-
-- a clean repository structure
-- foundational documentation
-- a basic README
-- technical design notes
-- a task list
-- a minimal architecture plan
-- optionally the first set of Godot scenes and scripts for the MVP
-
-The agent should be able to bootstrap the project professionally but simply.
-
----
-
-# 18. Example MVP Scene Flow
-
-This example is intended as guidance.
-
-## Flow
-- Main Menu
-- Scene 1: static western background, hostile event appears
-- QTE prompt appears: press a key in time
-- Success: continue to result or next scene
-- Failure: lose life
-- If lives reach zero: defeat screen
-- Otherwise: retry or continue
-- Victory screen if scene objective is completed
-
-This example can be used to implement the first playable version.
-
----
-
-# 19. Non-Goals
-
-The following are currently out of scope unless explicitly requested later:
-- large branching narrative systems
-- open-ended movement
-- multiplayer
-- networking
-- advanced physics gameplay
-- advanced AI enemies
-- deep combat systems
-- RPG systems
-- inventory/crafting
-- procedural content
-- complex save/load architecture
-- plugin-heavy solutions
-
----
-
-# 20. Final Instruction to the Agent
-
-You are working on a small student-made Godot 4 game.
-Your job is to help create a clean, playable, well-documented project.
-
-Always optimize for:
-- simplicity
-- clarity
-- small testable progress
-- maintainable structure
-- beginner-friendly code
-
-Do not over-engineer.
-Do not make assumptions beyond this file unless the user asks for them.
-Do not introduce unnecessary complexity.
-Build the smallest version that works, then iterate.
-
-If asked to implement, prefer producing:
-- documentation
-- clear file structure
-- simple Godot scenes
-- readable GDScript
-- incremental progress
+La documentación debe actualizarse cuando cambien la narrativa, el flujo, los nodos principales, los QTE o el estado de la entrega.

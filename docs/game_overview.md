@@ -1,43 +1,27 @@
-# Visión General del Juego
+# Visión general del juego
 
-## Premisa
+## Concepto
 
-El protagonista vive en las afueras de un pueblo fronterizo sin ley. Bandidos peligrosos y encuentros hostiles son una realidad cotidiana.
+`Western QTE Game` es un juego narrativo 2D corto sobre un forastero que intenta sobrevivir en un pueblo fronterizo hostil. La interacción se concentra en decisiones rápidas: disparar a un enemigo o tomar cobertura haciendo clic sobre la zona correcta antes de que se agote el tiempo.
 
-El juego abre con una **cinemática introductoria** que establece el contexto narrativo: consiste en una secuencia de 11 imágenes artísticas estáticas que muestran la crudeza del lejano oeste, preparando al jugador para el peligro inminente.
+El proyecto corresponde a un primer nivel completo y funciona como una introducción al mundo, al protagonista y al conflicto que continuará después.
 
-Tras esta introducción, el jugador debe sobrevivir a una serie de confrontaciones violentas reaccionando rápidamente a través de Quick Time Events (Eventos de Tiempo Rápido).
+## Desarrollo narrativo del primer nivel
 
+La partida comienza con una cinemática de 11 ilustraciones. Luego, el protagonista se enfrenta a un forajido en el exterior y entra en una taberna. Allí una secuencia de diálogos desemboca en un duelo de dos fases: primero debe cubrirse del disparo de un enemigo sentado y después contraatacar.
 
-## Ambientación
+Tras ganar, el protagonista mira hacia afuera y comenta “Qué quilombo...”. Una voz grita “¡HEY!”, la cámara se acerca a una ventana y el plano cambia a un enemigo acompañado por otros dos forajidos. El enemigo advierte: “¡Salí de ahí! ¡Te metiste con el patrón!”. La toma final muestra al protagonista respondiendo “¡No me dejaban dormir!” y pensando “... ahora tengo que ver cómo soluciono esto.”
 
-Un entorno inspirado en el oeste — pueblos polvorientos, cantinas (saloons), paisajes fronterizos. El tono es tenso, crudo y atmosférico.
+El nivel termina con un fundido a negro y una pantalla verde donde `CONTINUARÁ...` aparece por encima de `¡Bien!` y `Sobreviviste... por ahora.`
 
-## Tono
+## Presentación
 
-- Tenso y peligroso
-- Un poco crudo
-- De presentación sencilla
-- Centrado en la jugabilidad basada en reacciones
+- western polvoriento y tenso;
+- escenas estáticas o pre-renderizadas;
+- animaciones PNG extensas para acciones puntuales;
+- diálogos breves con globos de estética oscura y dorada;
+- música continua y efectos de disparo sincronizados con las animaciones.
 
-## Duración Estimada
+## Alcance
 
-De 10 a 15 minutos para una partida completa.
-
-## Objetivos del Proyecto
-
-Este es un pequeño proyecto universitario realizado por dos estudiantes. Los objetivos son:
-
-1. Crear un juego corto, completo y jugable
-2. Aprender los fundamentos del desarrollo de juegos con Godot 4
-3. Entregar un prototipo jugable ("vertical slice") bien terminado
-4. Mantener un alcance realista y alcanzable
-
-## Lo Que Este Juego NO Es
-
-- No es un juego de mundo abierto
-- No es un juego de acción basado en físicas complejas
-- No es un juego complejo basado en animaciones
-- No es un gran producto comercial
-
-El proyecto prioriza la **viabilidad** y la **integridad** sobre la ambición.
+Es un proyecto universitario pequeño realizado por dos estudiantes. No incluye exploración libre, inventario, IA compleja, mundo abierto ni sistemas de combate generales. Su objetivo es presentar un nivel breve, legible y completo usando escenas narrativas y QTE reutilizables.

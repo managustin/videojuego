@@ -56,6 +56,27 @@ extends Control
 ## Texto sobre la barra de tiempo durante el QTE.
 @export var qte_prompt_text: String = "TOMA COBERTURA"
 
+# ---------- Audio y sincronización de disparos ----------
+@export_group("Audio de disparos")
+## Audio utilizado cada vez que dispara el personaje.
+@export var sonido_disparo_personaje: AudioStream
+## Audio utilizado cada vez que dispara cualquiera de los enemigos.
+@export var sonido_disparo_enemigo: AudioStream
+
+@export_subgroup("1 - Fase 1: enemigo sentado")
+## Segundos desde que comienza "enemigo2_sentado_dispara" hasta que suena el disparo.
+@export_range(0.0, 10.0, 0.01, "or_greater") var demora_disparo_enemigo_sentado: float = 1.19
+
+@export_subgroup("2A - Fase 2: si acertás")
+## Segundos desde que comienza "pj_dispara_duelo" hasta que suena el disparo del personaje.
+@export_range(0.0, 10.0, 0.01, "or_greater") var demora_disparo_personaje_al_acertar: float = 1.195
+
+@export_subgroup("2B - Fase 2: si fallás o se acaba el tiempo")
+## Segundos desde que comienza "pj_dispara_pero_muere" hasta que dispara el personaje.
+@export_range(0.0, 10.0, 0.01, "or_greater") var demora_disparo_personaje_al_fallar: float = 1.865
+## Segundos desde que se reinicia "enemigo_parado_dispara" hasta el disparo que mata al personaje.
+@export_range(0.0, 10.0, 0.01, "or_greater") var demora_disparo_enemigo_al_fallar: float = 1.19
+
 # ---------- Variables de Control ----------
 var _fade_overlay: ColorRect
 var _qte_resolved: bool = false
@@ -146,6 +167,7 @@ func _iniciar_duelo() -> void:
 	if enemy_sprite.sprite_frames and enemy_sprite.sprite_frames.has_animation(enemy_animation_name):
 		enemy_sprite.sprite_frames.set_animation_loop(enemy_animation_name, false)
 		enemy_sprite.play(enemy_animation_name)
+		_play_shot_sound_after_delay(sonido_disparo_enemigo, demora_disparo_enemigo_sentado)
 	else:
 		push_warning("game_scene_03: Animación del enemigo '" + enemy_animation_name + "' no encontrada.")
 		_enemy_animation_done = true
@@ -301,6 +323,7 @@ func _on_qte_success() -> void:
 				player_sprite.stop()
 				player_sprite.frame = 0
 				player_sprite.play(player_shoot_animation_name)
+				_play_shot_sound_after_delay(sonido_disparo_personaje, demora_disparo_personaje_al_acertar)
 				await player_sprite.animation_finished
 			else:
 				push_warning("game_scene_03: Animación '" + player_shoot_animation_name + "' no encontrada.")
@@ -369,6 +392,7 @@ func _on_qte_failure() -> void:
 				player_sprite.stop()
 				player_sprite.frame = 0
 				player_sprite.play(player_shoot_and_die_animation_name)
+				_play_shot_sound_after_delay(sonido_disparo_personaje, demora_disparo_personaje_al_fallar)
 				await player_sprite.animation_finished
 			else:
 				push_warning("game_scene_03: Animación '" + player_shoot_and_die_animation_name + "' no encontrada.")
@@ -383,6 +407,7 @@ func _on_qte_failure() -> void:
 				enemy_sprite.stop()
 				enemy_sprite.frame = 0
 				enemy_sprite.play(enemy_parado_dispara_animation_name)
+				_play_shot_sound_after_delay(sonido_disparo_enemigo, demora_disparo_enemigo_al_fallar)
 				await enemy_sprite.animation_finished
 			else:
 				push_warning("game_scene_03: Animación del enemigo '" + enemy_parado_dispara_animation_name + "' no encontrada.")
@@ -486,6 +511,19 @@ func _mostrar_globo_dialogo(texto: String, posicion: Vector2, duracion: float = 
 
 
 # ==================== UTILIDADES ====================
+
+## Programa un SFX sin frenar la animación que acaba de comenzar.
+func _play_shot_sound_after_delay(stream: AudioStream, delay: float) -> void:
+	if stream == null:
+		return
+
+	if delay <= 0.0:
+		AudioManager.play_sfx(stream)
+		return
+
+	get_tree().create_timer(delay).timeout.connect(func():
+		AudioManager.play_sfx(stream)
+	)
 
 ## Setea MOUSE_FILTER_IGNORE en todos los nodos Control del subárbol.
 func _set_mouse_filter_ignore(node: Node) -> void:

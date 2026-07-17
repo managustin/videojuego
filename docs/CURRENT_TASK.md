@@ -1,24 +1,29 @@
-# Tarea Actual
-
-Cinemática introductoria implementada. Pendiente: asignar script en Godot y probar.
+# Tarea actual
 
 ## Objetivo
-Agregar una cinemática introductoria que se reproduzca entre el menú y la primera escena de juego.
 
-## Completado
-- [x] Carpeta `assets/cinematics/intro/` con 11 imágenes estáticas (0.png a 10.png)
-- [x] Escena `intro_cinematic.tscn` creada manualmente en Godot
-- [x] Script `intro_cinematic.gd` con soporte secuencial, fade-in/out, zoom y duraciones configurables
-- [x] `GameManager` actualizado: `start_game()` → cinemática, nueva función `start_first_scene()`
-- [x] Documentación conceptual, técnica e histórica completamente actualizada y sincronizada (README.md, gameplay.md, game_overview.md, technical_design.md, roadmap.md, task_list.md)
+Cerrar y validar el primer nivel completo para la entrega de la materia.
 
+## Estado implementado
 
-## Pendiente
-- [ ] Asignar el script `intro_cinematic.gd` al nodo raíz `IntroCinematic` en Godot
-- [ ] Probar el flujo completo: Menú → Cinemática → Escena 01
-- [ ] Ajustar duraciones individuales de cada imagen desde el Inspector
+- F5 inicia en el menú principal.
+- La introducción conduce a las escenas 01, 02, 03 y 04 en orden.
+- La escena 04 termina con fundido y pantalla verde `CONTINUARÁ...`.
+- Los disparos de las escenas 01 y 03 usan audios reutilizados y demoras editables.
+- La rama exitosa del contraataque en la escena 03 reproduce un solo disparo.
+- Los recursos visuales de la escena 04 se mantienen asignados desde el Inspector.
+
+## Trabajo inmediato
+
+1. Probar el recorrido completo en Godot.
+2. Afinar demoras de SFX contra los frames de disparo.
+3. Probar todas las ramas de fracaso y reintento.
+4. Revisar advertencias del depurador y presentación final.
+5. Preparar la entrega solicitada por la cátedra.
 
 ## Restricciones
-- Mantener la arquitectura simple
-- Seguir MASTER_CONTEXT.md para las decisiones
-- Todos los textos en español
+
+- No cambiar los diálogos de la taberna salvo pedido explícito.
+- No reemplazar asignaciones del Inspector con cargas rígidas por código.
+- No reintroducir la escena archivada del patio en el flujo activo.
+- Mantener el alcance centrado en este primer nivel.
