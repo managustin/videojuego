@@ -1,11 +1,11 @@
 # audio_manager.gd
 # Gestor global de audio (BGM y SFX).
-# Carga automáticamente la música desde la ruta designada si existe.
+# Carga automáticamente la música como recurso de Godot.
 
 extends Node
 
-## Ruta por defecto para la música de fondo
-const DEFAULT_MUSIC_PATH: String = "res://assets/audio/music/bg_music.ogg"
+## Música de fondo incluida en el proyecto y en las exportaciones
+const DEFAULT_MUSIC: AudioStream = preload("res://assets/audio/music/bg_music.ogg")
 
 var music_player: AudioStreamPlayer
 var sfx_pool: Array[AudioStreamPlayer] = []
@@ -27,14 +27,9 @@ func _ready() -> void:
 	play_default_music()
 
 
-## Reproduce la música de fondo por defecto si el archivo existe en el disco
+## Reproduce la música de fondo por defecto
 func play_default_music() -> void:
-	if FileAccess.file_exists(DEFAULT_MUSIC_PATH):
-		var music = load(DEFAULT_MUSIC_PATH)
-		if music:
-			play_music(music, -12.0)
-	else:
-		push_warning("AudioManager: No se encontró el archivo de música en " + DEFAULT_MUSIC_PATH + ". Pon la música allí para que suene automáticamente.")
+	play_music(DEFAULT_MUSIC, -12.0)
 
 
 ## Reproduce una pista de música continua (BGM)
